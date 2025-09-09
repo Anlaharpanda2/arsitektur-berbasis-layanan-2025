@@ -1,0 +1,97 @@
+C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\Order>mvnw spring-boot:run
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.anla:Order >---------------------------
+[INFO] Building Order 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.5:run (default-cli) > test-compile @ Order >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ Order ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO]
+[INFO] --- compiler:3.14.0:compile (default-compile) @ Order ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ Order ---
+[INFO] skip non existing resourceDirectory C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\Order\src\test\resources
+[INFO]
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ Order ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] <<< spring-boot:3.5.5:run (default-cli) < test-compile @ Order <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot:3.5.5:run (default-cli) @ Order ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2025-09-09T16:21:26.341+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.anla.Order.OrderApplication          : Starting OrderApplication using Java 17.0.12 with PID 9936 (C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\Order\target\classes started by anlah in C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\Order)
+2025-09-09T16:21:26.343+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.anla.Order.OrderApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-09-09T16:21:26.388+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-09T16:21:26.388+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-09T16:21:26.902+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-09T16:21:26.993+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
+2025-09-09T16:21:27.180+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=823db345-4a87-39da-a21d-5f51b8a92393
+2025-09-09T16:21:27.571+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-09-09T16:21:27.582+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-09T16:21:27.583+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-09-09T16:21:27.625+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-09T16:21:27.626+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1237 ms
+2025-09-09T16:21:27.745+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-09T16:21:27.781+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-09-09T16:21:27.807+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-09T16:21:28.016+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-09T16:21:28.037+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-09T16:21:28.156+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-09-09T16:21:28.158+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-09T16:21:28.177+07:00  WARN 9936 --- [ORDER-SERVICE] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-09T16:21:28.197+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+        Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+        Database driver: undefined/unknown
+        Database version: 2.3.232
+        Autocommit mode: undefined/unknown
+        Isolation level: undefined/unknown
+        Minimum pool size: undefined/unknown
+        Maximum pool size: undefined/unknown
+2025-09-09T16:21:28.760+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-09T16:21:28.790+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-09T16:21:28.953+07:00  WARN 9936 --- [ORDER-SERVICE] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-09T16:21:29.222+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-09-09T16:21:29.296+07:00  WARN 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-09-09T16:21:30.414+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-09-09T16:21:31.536+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-09-09T16:21:31.567+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-09-09T16:21:31.594+07:00  WARN 9936 --- [ORDER-SERVICE] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-09-09T16:21:31.609+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-09-09T16:21:31.625+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-09-09T16:21:31.634+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-09-09T16:21:31.636+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-09-09T16:21:31.636+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-09-09T16:21:31.636+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-09-09T16:21:31.636+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-09-09T16:21:31.636+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-09-09T16:21:31.643+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-09-09T16:21:31.643+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-09-09T16:21:31.917+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-09-09T16:21:31.919+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-09-09T16:21:31.920+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-09-09T16:21:31.922+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1757409691922 with initial instances count: 2
+2025-09-09T16:21:31.925+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ORDER-SERVICE with eureka with status UP
+2025-09-09T16:21:31.926+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1757409691926, current=UP, previous=STARTING]
+2025-09-09T16:21:31.928+07:00  INFO 9936 --- [ORDER-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ORDER-SERVICE/localhost:ORDER-SERVICE:8083: registering service...
+2025-09-09T16:21:31.940+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-09-09T16:21:31.940+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2025-09-09T16:21:31.970+07:00  INFO 9936 --- [ORDER-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ORDER-SERVICE/localhost:ORDER-SERVICE:8083 - registration status: 204
+2025-09-09T16:21:33.050+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-09-09T16:21:33.059+07:00  INFO 9936 --- [ORDER-SERVICE] [  restartedMain] com.anla.Order.OrderApplication          : Started OrderApplication in 8.353 seconds (process running for 9.044)
