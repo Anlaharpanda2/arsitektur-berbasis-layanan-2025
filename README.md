@@ -13,11 +13,7 @@ Sistem e-commerce berbasis microservices yang terdiri dari 3 layanan utama: Prod
 
 ## 📋 Daftar Services
 
-| Service | Port | Endpoint | Deskripsi |
-|---------|------|----------|-----------|
-| Product Service | 8081 | `/api/products` | Mengelola data produk |
-| Pelanggan Service | 8082 | `/api/pelanggan` | Mengelola data pelanggan |
-| Order Service | 8083 | `/api/order` | Mengelola data pesanan |
+![Daftar Services](./Assets/assets1.png)
 
 ## 🚀 Cara Menjalankan
 
