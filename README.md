@@ -13,7 +13,7 @@ Sistem e-commerce berbasis microservices yang terdiri dari 3 layanan utama: Prod
 
 ## 📋 Daftar Services
 
-![Daftar Services](./Assets/assets1.png)
+![Daftar Services](./Assets/asset1.png)
 
 ## 🚀 Cara Menjalankan
 
