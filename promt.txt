@@ -1,0 +1,74 @@
+Judul Prompt: Buat File README.md untuk Proyek Microservices Spring Boot
+
+Deskripsi:
+Tolong buatkan file `README.md` yang komprehensif dan terstruktur dengan baik untuk proyek arsitektur microservices berbasis Spring Boot. Proyek ini terdiri dari dua domain utama: **Marketplace** dan **Perpustakaan**, yang keduanya terhubung ke **Eureka Server** untuk service discovery.
+
+Berikut adalah detail lengkap dari proyek tersebut:
+
+### 1. Gambaran Umum Proyek
+Proyek ini mendemonstrasikan arsitektur microservices menggunakan Java Spring Boot dan Spring Cloud. Terdapat dua ekosistem layanan yang berbeda (Marketplace dan Perpustakaan), di mana masing-masing memiliki service gateway/aggregator sendiri untuk menyatukan data dari service lain di dalam domainnya.
+
+### 2. Arsitektur
+- **Pola:** Microservices
+- **Service Discovery:** Menggunakan Netflix Eureka sebagai pusat registrasi dan penemuan layanan.
+- **Komunikasi Antar Service:** Menggunakan `RestTemplate` yang di-anotasi `@LoadBalanced` untuk memanggil service lain melalui nama service yang terdaftar di Eureka.
+- **Gateway/Aggregator:** Setiap domain memiliki satu service yang bertindak sebagai aggregator untuk menyediakan data gabungan.
+
+### 3. Teknologi yang Digunakan
+- **Bahasa:** Java 17
+- **Framework:** Spring Boot 3.5.5, Spring Cloud 2025.0.0
+- **Build Tool:** Apache Maven
+- **Database:** H2 In-Memory Database (untuk setiap service)
+
+### 4. Detail Service
+Tolong sajikan detail service dalam format tabel Markdown.
+
+| Domain        | Nama Service           | Port   | Peran                | Endpoint Utama                               |
+|---------------|------------------------|--------|----------------------|----------------------------------------------|
+| **Infrastruktur** | `EUREKA-SERVER`        | `8761` | Service Registry     | `http://localhost:8761`                      |
+| **Marketplace**   | `PRODUK-SERVICE`       | `8081` | Service Mandiri      | `http://localhost:8081/api/products/{id}`    |
+| **Marketplace**   | `PELANGGAN-SERVICE`    | `8082` | Service Mandiri      | `http://localhost:8082/api/pelanggan/{id}`   |
+| **Marketplace**   | `ORDER-SERVICE`        | `8083` | Gateway / Aggregator | `http://localhost:8083/api/order/detail/{id}`|
+| **Perpustakaan**  | `BUKU-SERVICE`         | `8084` | Service Mandiri      | `http://localhost:8084/api/buku/{id}`        |
+| **Perpustakaan**  | `ANGGOTA-SERVICE`      | `8085` | Service Mandiri      | `http://localhost:8085/api/anggota/{id}`     |
+| **Perpustakaan**  | `PENGEMBALIAN-SERVICE` | `8086` | Service Mandiri      | `http://localhost:8086/api/pengembalian/{id}`|
+| **Perpustakaan**  | `PEMINJAMAN-SERVICE`   | `8087` | Gateway / Aggregator | `http://localhost:8087/api/peminjaman/detail/{id}`|
+
+### 5. Cara Menjalankan Proyek
+Jelaskan langkah-langkah untuk menjalankan keseluruhan proyek.
+
+1.  **Prasyarat:**
+    *   Java JDK 17 atau lebih tinggi.
+    *   Apache Maven.
+
+2.  **Build Semua Service:**
+    Jelaskan bahwa setiap service harus di-build terlebih dahulu menggunakan perintah `mvnw clean install` di dalam direktori masing-masing untuk memastikan semua dependensi terunduh dengan benar.
+
+3.  **Urutan Menjalankan Aplikasi:**
+    Berikan urutan yang benar untuk menyalakan semua service.
+    a. Jalankan **EUREKA-SERVER** terlebih dahulu.
+    b. Jalankan semua service mandiri (`PRODUK`, `PELANGGAN`, `BUKU`, `ANGGOTA`, `PENGEMBALIAN`).
+    c. Jalankan service gateway/aggregator (`ORDER`, `PEMINJAMAN`).
+
+4.  **Perintah untuk Menjalankan:**
+    Sediakan contoh perintah untuk menjalankan setiap service dari terminal, misalnya:
+    ```bash
+    # Contoh untuk BUKU-SERVICE
+    cd /path/to/Perpustakaan/Buku
+    mvnw spring-boot:run
+    ```
+
+### 6. Contoh Penggunaan API
+Berikan contoh bagaimana cara mengakses data gabungan dari service aggregator.
+
+-   **Marketplace Order Detail:**
+    Untuk mendapatkan detail pesanan beserta produk dan pelanggannya, akses:
+    ```
+    GET http://localhost:8083/api/order/detail/1
+    ```
+
+-   **Perpustakaan Peminjaman Detail:**
+    Untuk mendapatkan detail peminjaman beserta buku, anggota, dan status pengembaliannya, akses:
+    ```
+    GET http://localhost:8087/api/peminjaman/detail/1
+    ```

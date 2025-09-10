@@ -1,189 +1,224 @@
-# Microservices E-Commerce System
+# Arsitektur Berbasis Layanan
 
-Sistem e-commerce berbasis microservices yang terdiri dari 3 layanan utama: Product Service, Pelanggan Service, dan Order Service. Setiap layanan berjalan pada server terpisah menggunakan Java Spring Boot dengan Maven.
+## 📋 Eureka Service
+![Daftar Services](./Assets/asset2.png)
 
-## 🏗️ Arsitektur Sistem
+## 🏗️ Arsitektur
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│  Product Service│    │ Pelanggan Service│   │  Order Service  │
-│   Port: 8081    │    │   Port: 8082    │    │   Port: 8083    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
+- **Pola Arsitektur:** Microservices
+- **Service Discovery:** Netflix Eureka sebagai pusat registrasi dan penemuan layanan
+- **Komunikasi Antar Service:** RestTemplate dengan anotasi `@LoadBalanced` untuk load balancing otomatis
+- **Gateway/Aggregator:** Setiap domain memiliki satu service aggregator untuk menyediakan data gabungan
+- **Database:** H2 In-Memory Database untuk setiap service (untuk keperluan development dan testing)
 
-## 📋 Daftar Services
+## 🛠️ Teknologi yang Digunakan
 
-![Daftar Services](./Assets/asset1.png)
+| Komponen | Versi/Detail |
+|----------|--------------|
+| **Bahasa Pemrograman** | Java 17 |
+| **Framework** | Spring Boot 3.5.5 |
+| **Cloud Framework** | Spring Cloud 2025.0.0 |
+| **Build Tool** | Apache Maven |
+| **Database** | H2 In-Memory Database |
+| **Service Discovery** | Netflix Eureka |
 
-## 🚀 Cara Menjalankan
+## 📊 Detail Service
 
-### Prerequisites
-- Java 11 atau lebih tinggi
-- Maven 3.6+
-- IDE (IntelliJ IDEA/Eclipse) atau Command Line
+| Domain | Nama Service | Port | Peran | Endpoint Utama |
+|--------|--------------|------|-------|----------------|
+| **Infrastruktur** | `EUREKA-SERVER` | `8761` | Service Registry | `http://localhost:8761` |
+| **Marketplace** | `PRODUK-SERVICE` | `8081` | Service Mandiri | `http://localhost:8081/api/products/{id}` |
+| **Marketplace** | `PELANGGAN-SERVICE` | `8082` | Service Mandiri | `http://localhost:8082/api/pelanggan/{id}` |
+| **Marketplace** | `ORDER-SERVICE` | `8083` | Gateway/Aggregator | `http://localhost:8083/api/order/detail/{id}` |
+| **Perpustakaan** | `BUKU-SERVICE` | `8084` | Service Mandiri | `http://localhost:8084/api/buku/{id}` |
+| **Perpustakaan** | `ANGGOTA-SERVICE` | `8085` | Service Mandiri | `http://localhost:8085/api/anggota/{id}` |
+| **Perpustakaan** | `PENGEMBALIAN-SERVICE` | `8086` | Service Mandiri | `http://localhost:8086/api/pengembalian/{id}` |
+| **Perpustakaan** | `PEMINJAMAN-SERVICE` | `8087` | Gateway/Aggregator | `http://localhost:8087/api/peminjaman/detail/{id}` |
 
-### Menjalankan Setiap Service
+## 🚀 Cara Menjalankan Proyek
 
-1. **Product Service (Port 8081)**
-   ```bash
-   cd product-service
-   mvn clean install
-   mvn spring-boot:run
-   ```
+### 1. Prasyarat
 
-2. **Pelanggan Service (Port 8082)**
-   ```bash
-   cd pelanggan-service
-   mvn clean install
-   mvn spring-boot:run
-   ```
+Pastikan sistem Anda memiliki:
+- **Java JDK 17** atau versi yang lebih tinggi
+- **Apache Maven** (atau gunakan Maven Wrapper yang disediakan)
+- **Git** untuk clone repository
 
-3. **Order Service (Port 8083)**
-   ```bash
-   cd order-service
-   mvn clean install
-   mvn spring-boot:run
-   ```
+### 2. Build Semua Service
 
-### Verifikasi Service Berjalan
-- Product Service: http://localhost:8081
-- Pelanggan Service: http://localhost:8082
-- Order Service: http://localhost:8083
-
-## 📡 API Documentation
-
-### 1. Product Service API
-
-#### Create Product
-- **URL**: `http://localhost:8081/api/products`
-- **Method**: `POST`
-- **Content-Type**: `application/json`
-
-**Request Body:**
-```json
-{
-  "nama": "Beras Premium",
-  "satuan": "Kg",
-  "harga": "15000"
-}
-```
-
-#### Get All Products
-- **URL**: `http://localhost:8081/api/products`
-- **Method**: `GET`
-
-### 2. Pelanggan Service API
-
-#### Create Pelanggan
-- **URL**: `http://localhost:8082/api/pelanggan`
-- **Method**: `POST`
-- **Content-Type**: `application/json`
-
-**Request Body:**
-```json
-{
-  "kode": "C001",
-  "nama": "Budi Santoso",
-  "alamat": "Jl. Merdeka No. 10, Padang"
-}
-```
-
-#### Get All Pelanggan
-- **URL**: `http://localhost:8082/api/pelanggan`
-- **Method**: `GET`
-
-### 3. Order Service API
-
-#### Create Order
-- **URL**: `http://localhost:8083/api/order`
-- **Method**: `POST`
-- **Content-Type**: `application/json`
-
-**Request Body:**
-```json
-{
-  "productId": "1",
-  "pelangganId": "1",
-  "jumlah": 10,
-  "status": "PENDING",
-  "Total": 50000.00
-}
-```
-
-#### Get All Orders
-- **URL**: `http://localhost:8083/api/order`
-- **Method**: `GET`
-
-
-
-## 🧪 Testing Flow
-
-### Urutan Testing yang Disarankan:
-
-1. **Buat Product** terlebih dahulu
-2. **Buat Pelanggan** 
-3. **Buat Order** dengan menggunakan `productId` dan `pelangganId` yang sudah dibuat
-
-### Contoh Testing Sequence:
+Sebelum menjalankan aplikasi, lakukan build untuk semua service terlebih dahulu:
 
 ```bash
-# 1. Create Product
-POST http://localhost:8081/api/products
-Response: { "id": 1, "nama": "Beras Premium", ... }
-
-# 2. Create Pelanggan  
-POST http://localhost:8082/api/pelanggan
-Response: { "id": 1, "kode": "C001", "nama": "Budi Santoso", ... }
-
-# 3. Create Order menggunakan ID dari langkah 1 dan 2
-POST http://localhost:8083/api/order
-Body: { "productId": "1", "pelangganId": "1", ... }
+# Navigate ke direktori setiap service dan jalankan:
+mvnw clean install
 ```
 
-## 🔧 Configuration
+Perintah ini akan memastikan semua dependensi terunduh dengan benar dan aplikasi siap dijalankan.
 
-Pastikan setiap service menggunakan port yang berbeda di file `application.properties`:
+### 3. Urutan Menjalankan Aplikasi
 
-**Product Service (`application.properties`):**
-```properties
-server.port=8081
-spring.application.name=product-service
-```
+**⚠️ Penting:** Ikuti urutan berikut untuk memastikan semua service dapat berjalan dengan baik:
 
-**Pelanggan Service (`application.properties`):**
-```properties
-server.port=8082
-spring.application.name=pelanggan-service
-```
-
-**Order Service (`application.properties`):**
-```properties
-server.port=8083
-spring.application.name=order-service
-```
-
-## 🐛 Troubleshooting
-
-### Port Already in Use
-Jika ada error port sudah digunakan:
+#### a. Jalankan Eureka Server (PERTAMA)
 ```bash
-# Cek proses yang menggunakan port
-netstat -tulpn | grep :8081
-netstat -tulpn | grep :8082
-netstat -tulpn | grep :8083
-
-# Kill proses jika diperlukan
-kill -9 <PID>
+cd /path/to/eureka-server
+mvnw spring-boot:run
 ```
 
-### Service Tidak Bisa Diakses
-1. Pastikan semua service sudah running
-2. Cek log aplikasi untuk error
-3. Pastikan tidak ada firewall yang memblokir port
-4. Cek konfigurasi database jika menggunakan database
+#### b. Jalankan Service Mandiri (KEDUA)
+Jalankan service-service berikut dalam urutan bebas:
 
-## 📝 Notes
+```bash
+# PRODUK-SERVICE
+cd /path/to/Marketplace/Produk
+mvnw spring-boot:run
 
-- Pastikan menjalankan service Product dan Pelanggan terlebih dahulu sebelum Order Service
-- ID pada request Order harus sesuai dengan ID yang sudah ada di Product dan Pelanggan
-- Gunakan environment variables di Postman untuk memudahkan switching between environments (dev, staging, prod)
+# PELANGGAN-SERVICE
+cd /path/to/Marketplace/Pelanggan
+mvnw spring-boot:run
+
+# BUKU-SERVICE
+cd /path/to/Perpustakaan/Buku
+mvnw spring-boot:run
+
+# ANGGOTA-SERVICE
+cd /path/to/Perpustakaan/Anggota
+mvnw spring-boot:run
+
+# PENGEMBALIAN-SERVICE
+cd /path/to/Perpustakaan/Pengembalian
+mvnw spring-boot:run
+```
+
+#### c. Jalankan Gateway/Aggregator Service (TERAKHIR)
+```bash
+# ORDER-SERVICE
+cd /path/to/Marketplace/Order
+mvnw spring-boot:run
+
+# PEMINJAMAN-SERVICE
+cd /path/to/Perpustakaan/Peminjaman
+mvnw spring-boot:run
+```
+
+### 4. Verifikasi Service Discovery
+
+Setelah semua service berjalan, kunjungi Eureka Dashboard di:
+```
+http://localhost:8761
+```
+
+Anda should melihat semua service terdaftar dengan status "UP".
+
+## 🔗 Contoh Penggunaan API
+
+### Marketplace - Order Detail
+
+Untuk mendapatkan detail pesanan lengkap beserta informasi produk dan pelanggan:
+
+```bash
+curl -X GET http://localhost:8083/api/order/detail/1
+```
+
+**Response Example:**
+```json
+{
+  "orderId": 1,
+  "orderDate": "2024-01-15",
+  "status": "COMPLETED",
+  "pelanggan": {
+    "id": 1,
+    "nama": "John Doe",
+    "email": "john@example.com"
+  },
+  "produk": {
+    "id": 1,
+    "nama": "Laptop Gaming",
+    "harga": 15000000
+  },
+  "totalHarga": 15000000
+}
+```
+
+### Perpustakaan - Peminjaman Detail
+
+Untuk mendapatkan detail peminjaman lengkap beserta informasi buku, anggota, dan status pengembalian:
+
+```bash
+curl -X GET http://localhost:8087/api/peminjaman/detail/1
+```
+
+**Response Example:**
+```json
+{
+  "peminjamanId": 1,
+  "tanggalPinjam": "2024-01-10",
+  "tanggalKembali": "2024-01-24",
+  "status": "DIPINJAM",
+  "anggota": {
+    "id": 1,
+    "nama": "Jane Smith",
+    "nomorAnggota": "A001"
+  },
+  "buku": {
+    "id": 1,
+    "judul": "Pemrograman Java",
+    "pengarang": "Budi Santoso"
+  },
+  "pengembalian": {
+    "status": "BELUM_DIKEMBALIKAN",
+    "denda": 0
+  }
+}
+```
+
+## 🛡️ Health Check
+
+Setiap service memiliki endpoint actuator untuk monitoring:
+
+```bash
+# Contoh health check untuk BUKU-SERVICE
+curl http://localhost:8084/actuator/health
+```
+
+## 🧪 Testing
+
+Untuk menjalankan unit test pada semua service:
+
+```bash
+# Di direktori root setiap service
+mvnw test
+```
+
+## 📝 Catatan Pengembangan
+
+1. **Database H2 Console**: Setiap service memiliki H2 console yang dapat diakses di `http://localhost:{port}/h2-console`
+2. **Load Balancing**: RestTemplate menggunakan `@LoadBalanced` untuk distribusi request otomatis
+3. **Service Discovery**: Semua service menggunakan nama service yang terdaftar di Eureka untuk komunikasi internal
+4. **Port Management**: Pastikan tidak ada konflik port dengan aplikasi lain yang berjalan
+
+## 🤝 Kontribusi
+
+Untuk berkontribusi pada proyek ini:
+
+1. Fork repository
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+## 📄 Lisensi
+
+Proyek ini menggunakan lisensi [MIT License](LICENSE).
+
+## 📞 Dukungan
+
+Jika Anda mengalami masalah atau memiliki pertanyaan:
+
+- Buka issue di GitHub repository
+- Periksa dokumentasi Spring Cloud Netflix
+- Konsultasi dengan tim development
+
+---
+
+**Selamat mengembangkan dengan arsitektur microservices! 🚀**
