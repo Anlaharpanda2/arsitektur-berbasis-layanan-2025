@@ -17,7 +17,7 @@ import com.anla.Produk.model.Product;
 import com.anla.Produk.service.ProductService;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/produk")
 public class ProductController {
     @Autowired
     private ProductService productService;

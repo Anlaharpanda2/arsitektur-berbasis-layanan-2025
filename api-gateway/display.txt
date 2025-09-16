@@ -1,0 +1,132 @@
+K:\api-gateway>mvnw spring-boot:run
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.anla:api-gateway >------------------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.5:run (default-cli) > test-compile @ api-gateway >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ api-gateway ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO]
+[INFO] --- compiler:3.14.0:compile (default-compile) @ api-gateway ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ api-gateway ---
+[INFO] skip non existing resourceDirectory K:\api-gateway\src\test\resources
+[INFO]
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ api-gateway ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] <<< spring-boot:3.5.5:run (default-cli) < test-compile @ api-gateway <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot:3.5.5:run (default-cli) @ api-gateway ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2025-09-16T13:17:53.994+07:00  INFO 28544 --- [API-GATEWAY] [           main] c.a.api_gateway.ApiGatewayApplication    : Starting ApiGatewayApplication using Java 17.0.12 with PID 28544 (K:\api-gateway\target\classes started by anlah in K:\api-gateway)
+2025-09-16T13:17:53.994+07:00  INFO 28544 --- [API-GATEWAY] [           main] c.a.api_gateway.ApiGatewayApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-09-16T13:17:54.870+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=744c21dd-e8d1-3455-8591-7ad061890d4a
+2025-09-16T13:17:55.135+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9000 (http)
+2025-09-16T13:17:55.152+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-16T13:17:55.152+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-09-16T13:17:55.213+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-16T13:17:55.214+07:00  INFO 28544 --- [API-GATEWAY] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1054 ms
+2025-09-16T13:17:56.891+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-09-16T13:17:58.064+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-09-16T13:17:58.088+07:00  INFO 28544 --- [API-GATEWAY] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-09-16T13:17:58.274+07:00  WARN 28544 --- [API-GATEWAY] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-09-16T13:17:58.289+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-09-16T13:17:58.318+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-09-16T13:17:58.322+07:00  INFO 28544 --- [API-GATEWAY] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-09-16T13:17:58.331+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-09-16T13:17:58.331+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-09-16T13:17:58.331+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-09-16T13:17:58.331+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-09-16T13:17:58.331+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-09-16T13:17:58.331+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-09-16T13:17:58.333+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-09-16T13:17:58.553+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-09-16T13:17:58.561+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-09-16T13:17:58.561+07:00  INFO 28544 --- [API-GATEWAY] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-09-16T13:17:58.561+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1758003478561 with initial instances count: 7
+2025-09-16T13:17:58.568+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application API-GATEWAY with eureka with status UP
+2025-09-16T13:17:58.568+07:00  INFO 28544 --- [API-GATEWAY] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1758003478568, current=UP, previous=STARTING]
+2025-09-16T13:17:58.569+07:00  INFO 28544 --- [API-GATEWAY] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:9000: registering service...
+2025-09-16T13:17:58.590+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9000 (http) with context path '/'
+2025-09-16T13:17:58.590+07:00  INFO 28544 --- [API-GATEWAY] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9000
+2025-09-16T13:17:58.611+07:00  INFO 28544 --- [API-GATEWAY] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:9000 - registration status: 204
+2025-09-16T13:17:59.732+07:00  INFO 28544 --- [API-GATEWAY] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-09-16T13:17:59.748+07:00  INFO 28544 --- [API-GATEWAY] [           main] c.a.api_gateway.ApiGatewayApplication    : Started ApiGatewayApplication in 7.387 seconds (process running for 7.85)
+2025-09-16T13:18:07.447+07:00  INFO 28544 --- [API-GATEWAY] [nio-9000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-16T13:18:07.449+07:00  INFO 28544 --- [API-GATEWAY] [nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-16T13:18:07.450+07:00  INFO 28544 --- [API-GATEWAY] [nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-09-16T13:18:07.556+07:00  WARN 28544 --- [API-GATEWAY] [nio-9000-exec-1] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: PELANGGAN
+2025-09-16T13:18:07.568+07:00 ERROR 28544 --- [API-GATEWAY] [nio-9000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for PELANGGAN] with root cause
+
+org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for PELANGGAN
+        at org.springframework.cloud.gateway.server.mvc.filter.LoadBalancerFilterFunctions.lambda$lb$5(LoadBalancerFilterFunctions.java:88) ~[spring-cloud-gateway-server-mvc-4.3.0.jar:4.3.0]
+        at org.springframework.web.servlet.function.HandlerFilterFunction.lambda$andThen$0(HandlerFilterFunction.java:58) ~[spring-webmvc-6.2.10.jar:6.2.10]
+        at org.springframework.web.servlet.function.HandlerFilterFunction.lambda$ofRequestProcessor$3(HandlerFilterFunction.java:83) ~[spring-webmvc-6.2.10.jar:6.2.10]
+        at org.springframework.web.servlet.function.HandlerFilterFunction.lambda$andThen$1(HandlerFilterFunction.java:59) ~[spring-webmvc-6.2.10.jar:6.2.10]
+        at org.springframework.web.servlet.function.HandlerFilterFunction.lambda$apply$2(HandlerFilterFunction.java:70) ~[spring-webmvc-6.2.10.jar:6.2.10]
+        at org.springframework.web.servlet.function.support.HandlerFunctionAdapter.handle(HandlerFunctionAdapter.java:108) ~[spring-webmvc-6.2.10.jar:6.2.10]
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10] 
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]   
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
+        at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.10.jar:6.2.10]        
+        at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.44.jar:6.0]
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]       
+        at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.springframework.cloud.gateway.server.mvc.filter.WeightCalculatorFilter.doFilter(WeightCalculatorFilter.java:229) ~[spring-cloud-gateway-server-mvc-4.3.0.jar:4.3.0]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.springframework.cloud.gateway.server.mvc.filter.FormFilter.doFilter(FormFilter.java:93) ~[spring-cloud-gateway-server-mvc-4.3.0.jar:4.3.0]
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]  
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10] 
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]  
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]  
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44] 
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]  
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]       
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]        
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]    
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]    
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44] 
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]     
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]  
+        at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
