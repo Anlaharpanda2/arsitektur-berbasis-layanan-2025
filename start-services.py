@@ -10,41 +10,45 @@ services = [
         "name": "Eureka Server",
         "path": "eureka"
     },
-    # # marketplace services
-    # {
-    #     "name": "produk",
-    #     "path": r"Marketplace\Produk"
-    # },
-    # {
-    #     "name": "Pelanggan",
-    #     "path": r"Marketplace\Pelanggan"
-    # },
-    # {
-    #     "name": "Order",
-    #     "path": r"Marketplace\Order"
-    # },
-    # # perpustakaan services
-    # {
-    #     "name": "Buku",
-    #     "path": r"Perpustakaan\Buku"
-    # },
-    # {
-    #     "name": "Anggota",
-    #     "path": r"Perpustakaan\anggota"
-    # },
-    # {
-    #     "name": "Pengembalian",
-    #     "path": r"Perpustakaan\Pengembalian"
-    # },
-    # {
-    #     "name": "Peminjaman",
-    #     "path": r"Perpustakaan\Peminjaman"
-    # },
-    # # api gateway
-    # {
-    #     "name": "API Gateway",
-    #     "path": "api-gateway"
-    # },
+    # marketplace services
+    {
+        "name": "produk",
+        "path": r"Marketplace\Produk"
+    },
+    {
+        "name": "Pelanggan",
+        "path": r"Marketplace\Pelanggan"
+    },
+    {
+        "name": "Order",
+        "path": r"Marketplace\Order"
+    },
+    # perpustakaan services
+    {
+        "name": "Buku",
+        "path": r"Perpustakaan\Buku"
+    },
+    {
+        "name": "Anggota",
+        "path": r"Perpustakaan\anggota"
+    },
+    {
+        "name": "Pengembalian",
+        "path": r"Perpustakaan\Pengembalian"
+    },
+    {
+        "name": "Peminjaman",
+        "path": r"Perpustakaan\Peminjaman"
+    },
+    # api gateway
+    {
+        "name": "API Gateway Marketplace",
+        "path": r"Marketplace\api-gateway"
+    },
+    {
+        "name": "API Gateway Perpustakaan",
+        "path": r"Perpustakaan\api-gateway"
+    },
 ]
 
 print("="*50)

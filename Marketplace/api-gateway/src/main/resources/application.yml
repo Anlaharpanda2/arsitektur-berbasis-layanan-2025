@@ -5,7 +5,7 @@ server:
     
 spring:
     application:
-        name: API-GATEWAY
+        name: API-GATEWAY-MARKETPLACE
     cloud:
         gateway:
                 server:
