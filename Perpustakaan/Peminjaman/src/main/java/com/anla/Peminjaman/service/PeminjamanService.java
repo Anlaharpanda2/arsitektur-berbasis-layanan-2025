@@ -1,5 +1,6 @@
 package com.anla.Peminjaman.service;
 
+import com.anla.Peminjaman.dto.PeminjamanMessage;
 import com.anla.Peminjaman.model.Peminjaman;
 import com.anla.Peminjaman.repository.PeminjamanRepository;
 import com.anla.Peminjaman.VO.Anggota;
@@ -26,6 +27,9 @@ public class PeminjamanService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private PeminjamanProducerService peminjamanProducerService;
+
     public List<Peminjaman> getAllPeminjaman() {
         return peminjamanRepository.findAll();
     }
@@ -35,7 +39,15 @@ public class PeminjamanService {
     }
 
     public Peminjaman createPeminjaman(Peminjaman peminjaman) {
-        return peminjamanRepository.save(peminjaman);
+        Peminjaman savedPeminjaman = peminjamanRepository.save(peminjaman);
+        // Send notification to RabbitMQ
+        PeminjamanMessage message = new PeminjamanMessage(
+            savedPeminjaman.getId(),
+            savedPeminjaman.getAnggotaId(),
+            savedPeminjaman.getBukuId()
+        );
+        peminjamanProducerService.sendPeminjamanNotification(message);
+        return savedPeminjaman;
     }
 
     public Peminjaman updatePeminjaman(Long id, Peminjaman peminjamanDetails) {

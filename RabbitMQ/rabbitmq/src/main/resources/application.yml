@@ -28,6 +28,17 @@ spring:
     listener:
       simple:
         default-requeue-rejected: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: anlaharpanda2@gmail.com
+    password: jtkcqfvhjijiwxcw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 app:
   rabbitmq:

@@ -23,6 +23,7 @@ public class DataLoader implements CommandLineRunner {
             anggota1.setNama("Anla");
             anggota1.setAlamat("Padang");
             anggota1.setJenis_kelamin("Laki-laki");
+            anggota1.setEmail("anlaharpanda@gmail.com");
             anggotaRepository.save(anggota1);
             
             System.out.println("Data anggota berhasil dimuat.");

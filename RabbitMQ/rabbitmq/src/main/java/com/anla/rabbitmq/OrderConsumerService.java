@@ -1,5 +1,7 @@
 package com.anla.rabbitmq;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
@@ -8,17 +10,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class OrderConsumerService {
 
+    private static final Logger log = LoggerFactory.getLogger(OrderConsumerService.class);
     private final OrderRepository orderRepository;
+    private final EmailService emailService; // Inject EmailService
 
-    public OrderConsumerService(OrderRepository orderRepository) {
+    public OrderConsumerService(OrderRepository orderRepository, EmailService emailService) { // Modify constructor
         this.orderRepository = orderRepository;
+        this.emailService = emailService; // Initialize EmailService
     }
 
     @RabbitListener(queues = "${app.rabbitmq.queue}")
     @Transactional
     public void receiveOrder(@Payload Order order) {
         try {
-            System.out.println("Order received from RabbitMQ: " + order);
+            log.info("Order received from RabbitMQ: {}", order);
             
             // Update status order
             order.setStatus(Order.OrderStatus.PROCESSING);
@@ -32,24 +37,35 @@ public class OrderConsumerService {
             order.setProcessedAt(java.time.LocalDateTime.now());
             orderRepository.save(order);
             
-            System.out.println("Order processed successfully: " + order.getId());
+            log.info("Order processed successfully: {}", order.getId());
             
         } catch (Exception e) {
-            System.err.println("Error processing order: " + order.getId() + ", Error: " + e.getMessage());
+            log.error("Error processing order: {}, Error: {}", order != null ? order.getId() : "null", e.getMessage());
+            log.error("Exception details:", e);
             
             // Update status jika gagal
-            order.setStatus(Order.OrderStatus.FAILED);
-            orderRepository.save(order);
+            if (order != null) {
+                order.setStatus(Order.OrderStatus.FAILED);
+                orderRepository.save(order);
+            }
             
-            // Bisa ditambahkan logic untuk retry atau dead letter queue
-            throw new RuntimeException("Failed to process order", e);
+            // We are not re-throwing the exception here to prevent the message
+            // from being endlessly requeued, which could happen depending on the broker configuration.
+            // In a real-world scenario, you would have a more robust dead-lettering strategy.
         }
     }
 
     private void processOrder(Order order) {
         // Simulasi proses bisnis
-        System.out.println("Processing order: " + order.getId());
-        System.out.println("Sending confirmation email to: " + order.getCustomerEmail());
+        log.info("Processing order: {}", order.getId());
+        
+        // Mengirim email konfirmasi
+        String emailSubject = "Order Confirmation " + order.getId();
+        String emailBody = "Thank you for your order!\n\n" +
+                           "Product: " + order.getProductName() + "\n" +
+                           "Quantity: " + order.getQuantity() + "\n" +
+                           "Price: " + order.getPrice();
+        emailService.sendEmail(order.getCustomerEmail(), emailSubject, emailBody);
         
         // Simulasi delay processing
         try {
@@ -58,6 +74,6 @@ public class OrderConsumerService {
             Thread.currentThread().interrupt();
         }
         
-        System.out.println("Order processing completed: " + order.getId());
+        log.info("Order processing completed: {}", order.getId());
     }
 }
