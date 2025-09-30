@@ -65,7 +65,7 @@ public class OrderService {
         }
         
         // Menggunakan @LoadBalanced RestTemplate dengan nama service dari Eureka
-        Product produk = restTemplate.getForObject("http://PRODUK-SERVICE/api/products/"
+        Product produk = restTemplate.getForObject("http://PRODUK-SERVICE/api/produk/"
                 + order.getProductId(), Product.class);
 
         Pelanggan pelanggan = restTemplate.getForObject("http://PELANGGAN-SERVICE/api/pelanggan/"

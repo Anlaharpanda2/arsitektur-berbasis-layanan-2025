@@ -1,6 +1,7 @@
 package com.anla.Peminjaman.controller;
 
 import com.anla.Peminjaman.VO.ResponseTemplateVO;
+import com.anla.Peminjaman.dto.PeminjamanDto;
 import com.anla.Peminjaman.model.Peminjaman;
 import com.anla.Peminjaman.service.PeminjamanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class PeminjamanController {
     public ResponseEntity<Peminjaman> getPeminjamanById(@PathVariable Long id) {
         Peminjaman peminjaman = peminjamanService.getPeminjamanById(id);
         return peminjaman != null ? ResponseEntity.ok(peminjaman) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/denda/{id}")
+    public ResponseEntity<PeminjamanDto> getPeminjamanWithDenda(@PathVariable Long id) {
+        PeminjamanDto peminjamanDto = peminjamanService.getPeminjamanWithDenda(id);
+        return peminjamanDto != null ? ResponseEntity.ok(peminjamanDto) : ResponseEntity.notFound().build();
     }
 
     @PostMapping

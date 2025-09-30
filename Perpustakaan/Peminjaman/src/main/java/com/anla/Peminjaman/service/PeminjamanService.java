@@ -1,5 +1,6 @@
 package com.anla.Peminjaman.service;
 
+import com.anla.Peminjaman.dto.PeminjamanDto;
 import com.anla.Peminjaman.dto.PeminjamanMessage;
 import com.anla.Peminjaman.model.Peminjaman;
 import com.anla.Peminjaman.repository.PeminjamanRepository;
@@ -11,6 +12,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
 import com.anla.Peminjaman.VO.Pengembalian;
 import org.springframework.web.client.RestTemplate;
+
+import java.time.temporal.ChronoUnit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +57,8 @@ public class PeminjamanService {
         Peminjaman peminjaman = peminjamanRepository.findById(id).orElse(null);
         if (peminjaman != null) {
             peminjaman.setTanggal_pinjam(peminjamanDetails.getTanggal_pinjam());
-            peminjaman.setTanggal_kembali(peminjamanDetails.getTanggal_kembali());
+            peminjaman.setTanggalDikembalikan(peminjamanDetails.getTanggalDikembalikan());
+            peminjaman.setTanggal_batas(peminjamanDetails.getTanggal_batas());
             peminjaman.setAnggotaId(peminjamanDetails.getAnggotaId());
             peminjaman.setBukuId(peminjamanDetails.getBukuId());
             return peminjamanRepository.save(peminjaman);
@@ -85,6 +89,21 @@ public class PeminjamanService {
         Pengembalian pengembalian = restTemplate.getForObject("http://PENGEMBALIAN-SERVICE/api/pengembalian/" 
                 + id, Pengembalian.class); // Asumsi id pengembalian sama dengan id peminjaman
 
+        if (pengembalian != null && pengembalian.getTanggalDikembalikan() != null && peminjaman.getTanggal_batas() != null) {
+            // Sinkronisasi tanggal
+            peminjaman.setTanggalDikembalikan(pengembalian.getTanggalDikembalikan());
+
+            // Hitung denda dan keterlambatan
+            if (pengembalian.getTanggalDikembalikan().isAfter(peminjaman.getTanggal_batas())) {
+                long daysOverdue = ChronoUnit.DAYS.between(peminjaman.getTanggal_batas(), pengembalian.getTanggalDikembalikan());
+                pengembalian.setTerlambat((int) daysOverdue);
+                pengembalian.setDenda(daysOverdue * 1000.0);
+            } else {
+                pengembalian.setTerlambat(0);
+                pengembalian.setDenda(0.0);
+            }
+        }
+
         ResponseTemplateVO vo = new ResponseTemplateVO();
         vo.setPeminjaman(peminjaman);
         vo.setBuku(buku);
@@ -94,4 +113,13 @@ public class PeminjamanService {
         responseList.add(vo);
         return responseList;
     }
+
+    public PeminjamanDto getPeminjamanWithDenda(Long id) {
+        Peminjaman peminjaman = getPeminjamanById(id);
+        if (peminjaman == null) {
+            return null;
+        }
+        return new PeminjamanDto(peminjaman);
+    }
 }
+

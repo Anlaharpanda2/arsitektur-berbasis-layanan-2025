@@ -11,7 +11,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Pengembalian {
     private Long id;
-    private LocalDate tanggal_kembali;
+    private LocalDate tanggalDikembalikan;
+    private Integer terlambat;
     private Double denda;
     private Long peminjamanId;
 }

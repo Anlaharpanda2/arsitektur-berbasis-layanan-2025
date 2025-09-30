@@ -14,7 +14,8 @@ public class Peminjaman {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate tanggal_pinjam;
-    private LocalDate tanggal_kembali;
+    private LocalDate tanggalDikembalikan;
+    private LocalDate tanggal_batas;
     private Long anggotaId;
     private Long bukuId;
 }

@@ -20,7 +20,8 @@ public class DataLoader implements CommandLineRunner {
             
             Peminjaman peminjaman1 = new Peminjaman();
             peminjaman1.setTanggal_pinjam(LocalDate.now());
-            peminjaman1.setTanggal_kembali(LocalDate.now().plusDays(7));
+            peminjaman1.setTanggalDikembalikan(LocalDate.now().plusDays(10));
+            peminjaman1.setTanggal_batas(LocalDate.now().plusDays(7));
             peminjaman1.setAnggotaId(1L); // ID Anggota contoh
             peminjaman1.setBukuId(1L); // ID Buku contoh
             peminjamanRepository.save(peminjaman1);
