@@ -1,0 +1,39 @@
+orderdb=# select * from orders; select * from order_events;
+ id | jumlah | pelanggan_id | product_id |   status   |          tanggal           |   total   |               order_id
+----+--------+--------------+------------+------------+----------------------------+-----------+--------------------------------------
+  1 |     10 | 1            | 1          | PENDING    | 2025-10-01 09:57:26.00497  | 150000.00 |
+  2 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:03.946983 | 150000.00 |
+  3 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:04.073373 | 150000.00 |
+  4 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:04.243401 | 150000.00 |
+  5 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:04.393425 | 150000.00 |
+  6 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:04.539951 | 150000.00 |
+  7 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:04.671606 | 150000.00 |
+  8 |     10 | 1            | 1          | PENDING    | 2025-10-01 10:03:04.944559 | 150000.00 |
+  9 |     10 | 12           | 124        | DIBATALKAN | 2025-10-01 10:37:52.02328  | 150000.00 | d97ad0e9-3268-4c6d-80bf-08d24adac02c
+ 10 |     10 | 12           | 124        | PENDING    | 2025-10-01 10:46:57.34831  | 150000.00 | dca593a1-364d-46f8-8423-cf85f055fcb5
+(10 rows)
+
+
+               event_id               |             aggregate_id             |  event_type   |                                                                                            payload                                                                                             |         timestamp
+--------------------------------------+--------------------------------------+---------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------
+ 9807661e-ba19-4a15-9d0c-09c36b84200e | 6a029320-500a-40ed-ade7-3ddb81695a23 | ORDER_CREATED | {"orderId":"6a029320-500a-40ed-ade7-3ddb81695a23","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:03.9469828","status":"PENDING"}                     | 2025-10-01 10:03:03.949017
+ 9a7a2b82-e44d-444f-bca2-0b9b548ebd67 | e46a28ea-1ffd-4f17-be90-9c468a81f1af | ORDER_CREATED | {"orderId":"e46a28ea-1ffd-4f17-be90-9c468a81f1af","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:04.0733728","status":"PENDING"}                     | 2025-10-01 10:03:04.074384
+ 43272bd2-0d7c-4217-8e56-3eeb124c7add | 5c744c06-852a-4dcf-acac-08d2fcc8c2df | ORDER_CREATED | {"orderId":"5c744c06-852a-4dcf-acac-08d2fcc8c2df","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:04.2434008","status":"PENDING"}                     | 2025-10-01 10:03:04.244398
+ 13b38881-604d-464b-bb01-6672bfe92f0b | e8fe2570-b050-4a3a-aed0-d290f8b1ad01 | ORDER_CREATED | {"orderId":"e8fe2570-b050-4a3a-aed0-d290f8b1ad01","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:04.3934248","status":"PENDING"}                     | 2025-10-01 10:03:04.394422
+ 88d36b6b-7e0a-4bf7-bba1-451ff291d58b | 565d7e48-747f-41fa-8423-1c923c9d450b | ORDER_CREATED | {"orderId":"565d7e48-747f-41fa-8423-1c923c9d450b","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:04.5399508","status":"PENDING"}                     | 2025-10-01 10:03:04.540515
+ 23583101-2a59-47e2-9c39-b0e3f7c1f2ed | 7c4485b6-2f47-4116-8196-0fc528a12ed1 | ORDER_CREATED | {"orderId":"7c4485b6-2f47-4116-8196-0fc528a12ed1","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:04.6716061","status":"PENDING"}                     | 2025-10-01 10:03:04.672607
+ e4859497-bb17-4e6e-a723-cf1d4607302b | c2592276-2681-4f6b-ab4f-853fbaf1a05b | ORDER_CREATED | {"orderId":"c2592276-2681-4f6b-ab4f-853fbaf1a05b","pelangganId":"1","productId":"1","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:03:04.9445586","status":"PENDING"}                     | 2025-10-01 10:03:04.945519
+ 033672eb-2756-45b1-8557-f226c2570ed8 | 1                                    | ORDER_UPDATED | {"orderId":"1","productId":"1","pelangganId":"1","jumlah":10,"status":"SUCESS","total":150000}                                                                                                 | 2025-10-01 10:31:19.909699
+ 1afc68d0-d55c-4398-9802-7ae98f87a85d | 1                                    | ORDER_UPDATED | {"orderId":"1","productId":"1","pelangganId":"1","jumlah":10,"status":"DIKEMBALIKAN","total":150000}                                                                                           | 2025-10-01 10:34:28.484256
+ 1ece7be3-409f-46eb-a4d0-476ca5d6aefe | d97ad0e9-3268-4c6d-80bf-08d24adac02c | ORDER_CREATED | {"orderId":"d97ad0e9-3268-4c6d-80bf-08d24adac02c","pelangganId":"12","productId":"124","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:37:52.0232796","status":"PENDING"}                  | 2025-10-01 10:37:52.02428
+ 213b05f7-84a5-41ca-bdc4-a15aa9280942 | d97ad0e9-3268-4c6d-80bf-08d24adac02c | ORDER_UPDATED | {"orderId":"d97ad0e9-3268-4c6d-80bf-08d24adac02c","productId":"124","pelangganId":"12","jumlah":10,"status":"DIBATALKAN","total":150000}                                                       | 2025-10-01 10:38:20.862393
+ f1e8089d-13d2-4e07-8a3a-63a4e03144ff | dca593a1-364d-46f8-8423-cf85f055fcb5 | ORDER_CREATED | {"orderId":"dca593a1-364d-46f8-8423-cf85f055fcb5","pelangganId":"12","productId":"124","jumlah":10,"total":150000,"tanggal":"2025-10-01T10:46:57.3483095","status":"PENDING"}                  | 2025-10-01 10:46:57.349313
+ 1db7a1cf-e3d3-4dfa-80d5-12a1c08abb94 | 20d593f2-ecde-42fe-bd62-1f48a17791b9 | ORDER_CREATED | {"orderId":"20d593f2-ecde-42fe-bd62-1f48a17791b9","pelangganId":"CUST-67890","productId":"PROD-12345","jumlah":3,"total":150000.00,"tanggal":"2025-10-07T13:35:02.2310006","status":"PENDING"} | 2025-10-07 13:35:02.290024
+ 2051e6f5-1e9d-4949-8ffd-215f3cf553d5 | c03adf27-f0df-47fa-b287-c98864151658 | ORDER_CREATED | {"orderId":"c03adf27-f0df-47fa-b287-c98864151658","pelangganId":"CUST-67890","productId":"PROD-12345","jumlah":3,"total":150000.00,"tanggal":"2025-10-07T13:36:20.4624273","status":"PENDING"} | 2025-10-07 13:36:20.462427
+ 17d886e0-e90b-4981-aa78-460399080b47 | 397ce2bf-d0cb-4d0e-a4b7-d4a12721b5a5 | ORDER_CREATED | {"orderId":"397ce2bf-d0cb-4d0e-a4b7-d4a12721b5a5","pelangganId":"CUST-67890","productId":"PROD-12345","jumlah":3,"total":150000.00,"tanggal":"2025-10-07T13:36:21.8055247","status":"PENDING"} | 2025-10-07 13:36:21.806531
+ 73562047-5056-4d42-a19b-faeebc0207c7 | bef1d230-e8e8-48d2-9d2b-b66eddaf6f1e | ORDER_CREATED | {"orderId":"bef1d230-e8e8-48d2-9d2b-b66eddaf6f1e","pelangganId":"CUST-67890","productId":"PROD-12345","jumlah":3,"total":150000.00,"tanggal":"2025-10-07T13:36:22.92898","status":"PENDING"}   | 2025-10-07 13:36:22.930035
+ 22f28fb3-ed9c-4279-a0a6-226bc812e3b9 | 9f88d36e-53e2-4f3f-aedf-f583cd83fe5a | ORDER_CREATED | {"orderId":"9f88d36e-53e2-4f3f-aedf-f583cd83fe5a","pelangganId":"CUST-67890","productId":"PROD-12345","jumlah":3,"total":150000.00,"tanggal":"2025-10-07T13:37:52.9903986","status":"PENDING"} | 2025-10-07 13:37:52.991751
+(17 rows)
+
+
+orderdb=#

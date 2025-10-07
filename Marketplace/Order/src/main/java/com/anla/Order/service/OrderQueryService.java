@@ -1,58 +1,51 @@
 package com.anla.Order.service;
 
 import com.anla.Order.model.Order;
-import com.anla.Order.repository.OrderRepository;
+import com.anla.Order.model.OrderReadModel;
+import com.anla.Order.repository.mongo.OrderReadRepository;
 import com.anla.Order.VO.Pelanggan;
 import com.anla.Order.VO.Product;
 import com.anla.Order.VO.ResponeTemplate;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderQueryService {
 
-    private final OrderRepository orderRepository;
+    private final OrderReadRepository orderReadRepository;
     private final RestTemplate restTemplate;
-    private final RedisTemplate<String, String> redisTemplate;
-    private final ObjectMapper objectMapper;
 
     public List<Order> getAllOrder() {
-        return orderRepository.findAll();
+        log.info("Fetching all orders from MongoDB");
+        List<OrderReadModel> readModels = orderReadRepository.findAll();
+        return convertToOrderList(readModels);
     }
 
-    @SneakyThrows
     public Order getOrderById(Long id) {
-        // 1. Coba cari di cache (Redis) dulu
-        String redisKey = "order_detail:" + id;
-        String orderJson = redisTemplate.opsForValue().get(redisKey);
-
-        if (orderJson != null) {
-            log.info("Cache hit for key: {}", redisKey);
-            return objectMapper.readValue(orderJson, Order.class);
+        // Karena MongoDB menggunakan String ID, kita perlu mencari berdasarkan orderId atau cara lain
+        log.info("Fetching order by ID: {} from MongoDB", id);
+        // Untuk sementara, kita akan mencari semua dan filter berdasarkan index
+        // Ini bukan solusi optimal, tetapi untuk kompatibilitas dengan controller yang existing
+        List<OrderReadModel> allOrders = orderReadRepository.findAll();
+        if (id > 0 && id <= allOrders.size()) {
+            OrderReadModel readModel = allOrders.get((int) (id - 1));
+            return convertToOrder(readModel);
         }
+        return null;
+    }
 
-        // 2. Jika tidak ada di cache, cari di database (Postgres Read Model)
-        log.info("Cache miss for key: {}. Fetching from database.", redisKey);
-        Order order = orderRepository.findById(id).orElse(null);
-
-        // 3. Jika ditemukan di DB, simpan ke cache untuk request berikutnya
-        if (order != null) {
-            String newOrderJson = objectMapper.writeValueAsString(order);
-            redisTemplate.opsForValue().set(redisKey, newOrderJson, 10, TimeUnit.MINUTES); // Cache for 10 minutes
-        }
-
-        return order;
+    public Order getOrderByOrderId(String orderId) {
+        log.info("Fetching order by orderId: {} from MongoDB", orderId);
+        return orderReadRepository.findByOrderId(orderId)
+                .map(this::convertToOrder)
+                .orElse(null);
     }
 
     public List<ResponeTemplate> getOrderWithProdukById(Long id){
@@ -62,7 +55,7 @@ public class OrderQueryService {
             return responseList;
         }
 
-        // Komunikasi sinkron ini tetap ada untuk saat ini sesuai rencana
+        // Komunikasi sinkron dengan service lain
         Product produk = restTemplate.getForObject("http://PRODUK-SERVICE/api/produk/"
                 + order.getProductId(), Product.class);
 
@@ -75,5 +68,26 @@ public class OrderQueryService {
         vo.setPelanggan(pelanggan);
         responseList.add(vo);
         return responseList;
+    }
+
+    // Helper methods untuk konversi antara OrderReadModel dan Order
+    private List<Order> convertToOrderList(List<OrderReadModel> readModels) {
+        return readModels.stream()
+                .map(this::convertToOrder)
+                .toList();
+    }
+
+    private Order convertToOrder(OrderReadModel readModel) {
+        Order order = new Order();
+        // Menggunakan hash dari orderId sebagai ID untuk kompatibilitas
+        order.setId(Math.abs(readModel.getOrderId().hashCode()));
+        order.setOrderId(readModel.getOrderId());
+        order.setProductId(readModel.getProductId());
+        order.setPelangganId(readModel.getPelangganId());
+        order.setJumlah(readModel.getJumlah());
+        order.setTanggal(readModel.getTanggal());
+        order.setStatus(readModel.getStatus());
+        order.setTotal(readModel.getTotal());
+        return order;
     }
 }
