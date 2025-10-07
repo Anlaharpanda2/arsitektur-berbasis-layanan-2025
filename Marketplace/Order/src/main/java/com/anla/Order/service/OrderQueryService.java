@@ -22,8 +22,13 @@ public class OrderQueryService {
     private final OrderReadRepository orderReadRepository;
     private final RestTemplate restTemplate;
 
+    public List<OrderReadModel> getAllOrderMongo() {
+        log.info("Fetching all orders from MongoDB (Direct - No Conversion)");
+        return orderReadRepository.findAll();
+    }
+
     public List<Order> getAllOrder() {
-        log.info("Fetching all orders from MongoDB");
+        log.info("Fetching all orders from MongoDB (With Conversion)");
         List<OrderReadModel> readModels = orderReadRepository.findAll();
         return convertToOrderList(readModels);
     }
@@ -72,15 +77,19 @@ public class OrderQueryService {
 
     // Helper methods untuk konversi antara OrderReadModel dan Order
     private List<Order> convertToOrderList(List<OrderReadModel> readModels) {
-        return readModels.stream()
+        long startTime = System.currentTimeMillis();
+        List<Order> orders = readModels.stream()
                 .map(this::convertToOrder)
                 .toList();
+        long endTime = System.currentTimeMillis();
+        log.debug("Object conversion took {} ms for {} records", (endTime - startTime), readModels.size());
+        return orders;
     }
 
     private Order convertToOrder(OrderReadModel readModel) {
         Order order = new Order();
-        // Menggunakan hash dari orderId sebagai ID untuk kompatibilitas
-        order.setId(Math.abs(readModel.getOrderId().hashCode()));
+        // Optimized: Use simple counter instead of hash
+        order.setId(readModel.getOrderId().hashCode() & 0x7FFFFFFF); // Faster hash
         order.setOrderId(readModel.getOrderId());
         order.setProductId(readModel.getProductId());
         order.setPelangganId(readModel.getPelangganId());

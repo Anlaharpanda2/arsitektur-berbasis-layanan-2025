@@ -34,7 +34,7 @@ public class HttpSeeder {
         int errorCount = 0;
         long startTime = System.currentTimeMillis();
         
-        for (int i = 1; i <= 500; i++) {
+        for (int i = 1; i <= 50000; i++) {
             try {
                 String customerId = CUSTOMER_IDS[random.nextInt(CUSTOMER_IDS.length)];
                 String productId = PRODUCT_IDS[random.nextInt(PRODUCT_IDS.length)];

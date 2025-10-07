@@ -104,6 +104,30 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.25.0</version>
+				<configuration>
+					<rulesets>
+						<ruleset>../../testing/pmd-rules.xml</ruleset>
+					</rulesets>
+					<includeTests>true</includeTests>
+					<linkXRef>false</linkXRef>
+					
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>17</targetJdk>
+					<failOnViolation>true</failOnViolation>
+					<printFailingErrors>true</printFailingErrors>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

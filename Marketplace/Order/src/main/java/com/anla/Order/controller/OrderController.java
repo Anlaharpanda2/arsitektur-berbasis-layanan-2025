@@ -66,20 +66,27 @@ public class OrderController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/debug/mongo")
-    public ResponseEntity<?> debugMongoData() {
-        try {
-            List<Order> orders = orderQueryService.getAllOrder();
-            return ResponseEntity.ok(Map.of(
-                "total_orders", orders.size(),
-                "orders", orders
-            ));
-        } catch (Exception e) {
-            return ResponseEntity.ok(Map.of(
-                "error", e.getMessage(),
-                "message", "Error fetching from MongoDB"
-            ));
-        }
+    @GetMapping("/benchmark/direct")
+    public ResponseEntity<Map<String, Object>> getAllOrderDirectMongo() {
+        log.info("Starting performance benchmark for MongoDB - Direct (No Conversion)");
+        long startTime = System.currentTimeMillis();
+        
+        List<com.anla.Order.model.OrderReadModel> orders = orderQueryService.getAllOrderMongo();
+        
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        
+        log.info("MongoDB Direct getAllOrder completed in {} ms, returned {} records", executionTime, orders.size());
+        
+        Map<String, Object> response = Map.of(
+            "database", "MongoDB Direct",
+            "execution_time_ms", executionTime,
+            "total_records", orders.size(),
+            "data", orders,
+            "timestamp", java.time.LocalDateTime.now()
+        );
+        
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")

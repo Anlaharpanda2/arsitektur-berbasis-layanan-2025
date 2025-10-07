@@ -4,11 +4,22 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * Main application class.
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class AnggotaApplication {
+public final class AnggotaApplication {
 
-	public static void main(String[] args) {
+    private AnggotaApplication() {
+        // Utility class
+    }
+
+    /**
+     * Main method.
+     * @param args Command line arguments.
+     */
+	public static void main(final String[] args) {
 		SpringApplication.run(AnggotaApplication.class, args);
 	}
 

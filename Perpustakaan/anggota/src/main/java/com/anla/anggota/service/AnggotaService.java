@@ -7,37 +7,69 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class for Anggota.
+ */
 @Service
+@SuppressWarnings({"PMD.AtLeastOneConstructor", "PMD.ShortVariable"})
 public class AnggotaService {
 
+    /**
+     * Repository for Anggota data.
+     */
     @Autowired
     private AnggotaRepository anggotaRepository;
 
+    /**
+     * Get all Anggota.
+     * @return List of Anggota.
+     */
     public List<Anggota> getAllAnggota() {
         return anggotaRepository.findAll();
     }
 
-    public Anggota getAnggotaById(Long id) {
+    /**
+     * Get Anggota by id.
+     * @param id The id of the Anggota.
+     * @return The Anggota object.
+     */
+    public Anggota getAnggotaById(final Long id) {
         return anggotaRepository.findById(id).orElse(null);
     }
 
-    public Anggota createAnggota(Anggota anggota) {
+    /**
+     * Create a new Anggota.
+     * @param anggota The Anggota object to create.
+     * @return The created Anggota object.
+     */
+    public Anggota createAnggota(final Anggota anggota) {
         return anggotaRepository.save(anggota);
     }
 
-    public Anggota updateAnggota(Long id, Anggota anggotaDetails) {
-        Anggota anggota = anggotaRepository.findById(id).orElse(null);
+    /**
+     * Update an Anggota.
+     * @param id The id of the Anggota to update.
+     * @param anggotaDetails The updated Anggota details.
+     * @return The updated Anggota object.
+     */
+    public Anggota updateAnggota(final Long id, final Anggota anggotaDetails) {
+        final Anggota anggota = anggotaRepository.findById(id).orElse(null);
+        Anggota updatedAnggota = null;
         if (anggota != null) {
             anggota.setNim(anggotaDetails.getNim());
             anggota.setNama(anggotaDetails.getNama());
             anggota.setAlamat(anggotaDetails.getAlamat());
-            anggota.setJenis_kelamin(anggotaDetails.getJenis_kelamin());
-            return anggotaRepository.save(anggota);
+            anggota.setJenisKelamin(anggotaDetails.getJenisKelamin());
+            updatedAnggota = anggotaRepository.save(anggota);
         }
-        return null;
+        return updatedAnggota;
     }
 
-    public void deleteAnggota(Long id) {
+    /**
+     * Delete an Anggota.
+     * @param id The id of the Anggota to delete.
+     */
+    public void deleteAnggota(final Long id) {
         anggotaRepository.deleteById(id);
     }
 }

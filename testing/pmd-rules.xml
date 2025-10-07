@@ -7,19 +7,14 @@
         Aturan PMD terpusat untuk semua microservice. Mencakup semua kategori standar untuk pengecekan paling detail.
     </description>
 
-    <!-- 
-    <rule ref="rulesets/java/bestpractices.xml" />
-    <rule ref="rulesets/java/codestyle.xml" />
-    <rule ref="rulesets/java/design.xml" />
-    <rule ref="rulesets/java/documentation.xml" />
-    <rule ref="rulesets/java/errorprone.xml" />
-    <rule ref="rulesets/java/multithreading.xml" />
-    <rule ref="rulesets/java/performance.xml" />
-    <rule ref="rulesets/java/security.xml" />
-    <rule ref="rulesets/java/controversial.xml" />
-    -->
-
-    <!-- Aturan dasar untuk memastikan PMD berjalan -->
-    <rule ref="rulesets/java/errorprone.xml/EmptyCatchBlock" />
-
+    <rule ref="category/java/bestpractices.xml" />
+    <rule ref="category/java/codestyle.xml" />
+    <rule ref="category/java/design.xml">
+        <exclude name="LoosePackageCoupling"/>
+    </rule>
+    <rule ref="category/java/documentation.xml" />
+    <rule ref="category/java/errorprone.xml" />
+    <rule ref="category/java/multithreading.xml" />
+    <rule ref="category/java/performance.xml" />
+    <rule ref="category/java/security.xml" />
 </ruleset>
