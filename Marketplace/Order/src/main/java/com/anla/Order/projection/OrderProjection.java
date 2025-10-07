@@ -37,7 +37,7 @@ public class OrderProjection {
         orderReadModel.setTotal(event.getTotal());
         
         OrderReadModel savedOrderMongo = orderReadRepository.save(orderReadModel);
-        log.info("Order read model saved to MongoDB with ID: {}", savedOrderMongo.getId());
+        log.info("Order read model tersimpan ke MongoDB dengan ID: {}", savedOrderMongo.getId());
 
         // 2. Save to PostgreSQL Read Model (orders table)
         Order orderPostgres = new Order();
@@ -50,7 +50,7 @@ public class OrderProjection {
         orderPostgres.setTotal(event.getTotal());
 
         Order savedOrderPostgres = orderRepository.save(orderPostgres);
-        log.info("Order read model saved to PostgreSQL with ID: {}", savedOrderPostgres.getId());
+        log.info("Order read model tersimpan ke PostgreSQL dengan ID: {}", savedOrderPostgres.getId());
     }
 
     @RabbitHandler // Method ini akan dipanggil jika message berisi OrderUpdatedEvent

@@ -26,7 +26,7 @@ public class OrderCommandService {
     private final ObjectMapper objectMapper; // Spring Boot auto-configures this bean
 
     @Transactional
-    @SneakyThrows // Lombok annotation to avoid checked exceptions (e.g., from objectMapper)
+    @SneakyThrows 
     public String handleCreateOrder(CreateOrderCommand command) {
         String orderId = UUID.randomUUID().toString();
 

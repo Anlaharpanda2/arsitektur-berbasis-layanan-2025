@@ -46,6 +46,26 @@ public class OrderController {
         return orderQueryService.getAllOrder();
     }
 
+    @GetMapping("/benchmark")
+    public ResponseEntity<Map<String, Object>> getAllOrderWithTiming() {
+        long startTime = System.currentTimeMillis();
+        
+        List<Order> orders = orderQueryService.getAllOrder();
+        
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        
+        Map<String, Object> response = Map.of(
+            "database", "MongoDB",
+            "execution_time_ms", executionTime,
+            "total_records", orders.size(),
+            "data", orders,
+            "timestamp", java.time.LocalDateTime.now()
+        );
+        
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/debug/mongo")
     public ResponseEntity<?> debugMongoData() {
         try {
@@ -77,27 +97,6 @@ public class OrderController {
     @GetMapping("/detail/{id}")
     public ResponseEntity<ResponeTemplate> getOrderWithProdukById(@PathVariable Long id) {
         List<ResponeTemplate> results = orderQueryService.getOrderWithProdukById(id);
-        if (results.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(results.get(0));
-    }
-
-    // READ FROM POSTGRESQL (Secondary Read Model)
-    @GetMapping("/postgres")
-    public List<Order> getAllOrderFromPostgres() {
-        return orderService.getAllOrder();
-    }
-
-    @GetMapping("/postgres/{id}")
-    public ResponseEntity<Order> getOrderFromPostgresById(@PathVariable Long id) {
-        Order order = orderService.getOrderById(id);
-        return order != null ? ResponseEntity.ok(order) : ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/postgres/detail/{id}")
-    public ResponseEntity<ResponeTemplate> getOrderWithProdukFromPostgresById(@PathVariable Long id) {
-        List<ResponeTemplate> results = orderService.getOrderWithProdukById(id);
         if (results.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
