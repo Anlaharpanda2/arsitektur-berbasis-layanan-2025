@@ -28,7 +28,7 @@ public class OrderQueryService {
     }
 
     public List<Order> getAllOrder() {
-        log.info("Fetching all orders from MongoDB (With Conversion)");
+        log.info("Fetching all orders from MongoDB");
         List<OrderReadModel> readModels = orderReadRepository.findAll();
         return convertToOrderList(readModels);
     }

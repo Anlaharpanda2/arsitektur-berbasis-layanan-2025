@@ -68,7 +68,6 @@ public class OrderController {
 
     @GetMapping("/benchmark/direct")
     public ResponseEntity<Map<String, Object>> getAllOrderDirectMongo() {
-        log.info("Starting performance benchmark for MongoDB - Direct (No Conversion)");
         long startTime = System.currentTimeMillis();
         
         List<com.anla.Order.model.OrderReadModel> orders = orderQueryService.getAllOrderMongo();
@@ -76,7 +75,6 @@ public class OrderController {
         long endTime = System.currentTimeMillis();
         long executionTime = endTime - startTime;
         
-        log.info("MongoDB Direct getAllOrder completed in {} ms, returned {} records", executionTime, orders.size());
         
         Map<String, Object> response = Map.of(
             "database", "MongoDB Direct",

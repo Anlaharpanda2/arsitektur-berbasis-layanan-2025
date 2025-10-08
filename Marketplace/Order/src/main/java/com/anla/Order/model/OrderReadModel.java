@@ -14,13 +14,11 @@ public class OrderReadModel {
     @Id
     private String id; // MongoDB ObjectId
     
-    @Field("order_id")
+    @org.springframework.data.mongodb.core.index.Indexed(unique = true)
     private String orderId; // Aggregate ID from the event
     
-    @Field("product_id")
     private String productId;
     
-    @Field("pelanggan_id")
     private String pelangganId;
     
     private int jumlah;
