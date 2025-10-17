@@ -1,0 +1,617 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.anla:anggota >--------------------------
+[INFO] Building anggota 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ anggota ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ anggota ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ anggota ---
+[INFO] skip non existing resourceDirectory C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\arsitektur-berbasis-layanan-2025\Perpustakaan\anggota\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ anggota ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ anggota ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.anla.anggota.AnggotaApplicationTests
+10:17:50.976 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.anla.anggota.AnggotaApplicationTests]: AnggotaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:17:51.118 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.anla.anggota.AnggotaApplication for test class com.anla.anggota.AnggotaApplicationTests
+10:17:51.638 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2025-10-07T10:17:53.201+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] c.anla.anggota.AnggotaApplicationTests   : Starting AnggotaApplicationTests using Java 17.0.12 with PID 7640 (started by anlah in C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\arsitektur-berbasis-layanan-2025\Perpustakaan\anggota)
+2025-10-07T10:17:53.201+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] c.anla.anggota.AnggotaApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2025-10-07T10:17:54.454+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-07T10:17:54.733+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 255 ms. Found 1 JPA repository interface.
+2025-10-07T10:17:55.332+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4af7a656-7301-3da9-aa64-602d36edb822
+2025-10-07T10:17:56.156+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-07T10:17:56.297+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-07T10:17:56.407+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-07T10:17:57.050+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-07T10:17:57.120+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-07T10:17:57.436+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./h2db/db/produk user=SA
+2025-10-07T10:17:57.439+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-07T10:17:57.477+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-07T10:17:57.511+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-07T10:17:58.623+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-07T10:17:58.708+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-07T10:17:59.432+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-07T10:18:00.422+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./h2db/db/produk'
+2025-10-07T10:18:01.862+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T10:18:03.184+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T10:18:03.222+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-10-07T10:18:03.309+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-07T10:18:03.359+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-10-07T10:18:03.408+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-10-07T10:18:03.416+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T10:18:03.442+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-10-07T10:18:03.442+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-10-07T10:18:03.442+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-10-07T10:18:03.442+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-10-07T10:18:03.443+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-10-07T10:18:03.443+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-10-07T10:18:03.443+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-10-07T10:18:03.938+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplications(RestTemplateEurekaHttpClient.java:162)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1046)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:961)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:410)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:245)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:240)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:68)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:324)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:378)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:373)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:177)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:375)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:128)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:116)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:480)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration$$SpringCGLIB$$0.getEurekaClient(<generated>)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:83)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:66)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:89)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:405)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:394)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:586)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:364)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:310)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:630)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:205)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 153 more
+
+2025-10-07T10:18:03.940+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [           main] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 failed: Connection refused: no further information
+2025-10-07T10:18:03.942+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ANGGOTA-SERVICE/localhost:ANGGOTA-SERVICE:8085 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1046)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:961)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:410)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:245)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:240)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:68)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:324)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:378)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:373)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:177)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:375)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:128)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:116)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:480)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration$$SpringCGLIB$$0.getEurekaClient(<generated>)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:83)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:66)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:89)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:405)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:394)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:586)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:364)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:310)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:630)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+2025-10-07T10:18:03.944+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
+2025-10-07T10:18:03.944+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
+2025-10-07T10:18:03.944+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
+2025-10-07T10:18:03.945+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-10-07T10:18:03.947+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-10-07T10:18:03.949+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1759807083948 with initial instances count: 0
+2025-10-07T10:18:03.953+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ANGGOTA-SERVICE with eureka with status UP
+2025-10-07T10:18:03.957+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1759807083957, current=UP, previous=STARTING]
+2025-10-07T10:18:03.961+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ANGGOTA-SERVICE/localhost:ANGGOTA-SERVICE:8085: registering service...
+2025-10-07T10:18:03.975+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [           main] c.anla.anggota.AnggotaApplicationTests   : Started AnggotaApplicationTests in 12.362 seconds (process running for 13.863)
+2025-10-07T10:18:04.049+07:00  INFO 7640 --- [ANGGOTA-SERVICE] [foReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/ANGGOTA-SERVICE": Connect to http://localhost:8761 failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/ANGGOTA-SERVICE": Connect to http://localhost:8761 failed: Connection refused: no further information
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:205)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 22 more
+
+2025-10-07T10:18:04.050+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [foReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/ANGGOTA-SERVICE": Connect to http://localhost:8761 failed: Connection refused: no further information
+2025-10-07T10:18:04.051+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ANGGOTA-SERVICE/localhost:ANGGOTA-SERVICE:8085 - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-10-07T10:18:04.057+07:00  WARN 7640 --- [ANGGOTA-SERVICE] [foReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.24 s -- in com.anla.anggota.AnggotaApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ anggota ---
+[INFO] Building jar: C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\arsitektur-berbasis-layanan-2025\Perpustakaan\anggota\target\anggota-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.5:repackage (repackage) @ anggota ---
+[INFO] Replacing main artifact C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\arsitektur-berbasis-layanan-2025\Perpustakaan\anggota\target\anggota-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\anlah\OneDrive\Documents\SEMESTER 5\Arsitektur Berbasis Layanan\arsitektur-berbasis-layanan-2025\Perpustakaan\anggota\target\anggota-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] >>> pmd:3.21.0:check (pmd-check) > :pmd @ anggota >>>
+[INFO] 
+[INFO] --- pmd:3.21.0:pmd (pmd) @ anggota ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.pom
+Progress (1): 787 BProgress (1): 1.8 kBProgress (1): 4.4 kBProgress (1): 5.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.pom (5.3 kB at 4.3 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/37/maven-shared-components-37.pom
+Progress (1): 781 BProgress (1): 1.8 kBProgress (1): 3.7 kBProgress (1): 4.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/37/maven-shared-components-37.pom (4.9 kB at 3.0 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/37/maven-parent-37.pom
+Progress (1): 737 BProgress (1): 1.9 kBProgress (1): 3.9 kBProgress (1): 8.3 kBProgress (1): 13 kB Progress (1): 16 kBProgress (1): 21 kBProgress (1): 25 kBProgress (1): 26 kBProgress (1): 28 kBProgress (1): 31 kBProgress (1): 32 kBProgress (1): 36 kBProgress (1): 38 kBProgress (1): 40 kBProgress (1): 46 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/37/maven-parent-37.pom (46 kB at 92 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-core/6.55.0/pmd-core-6.55.0.pom
+Progress (1): 1.5 kBProgress (1): 3.8 kBProgress (1): 8.4 kBProgress (1): 8.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-core/6.55.0/pmd-core-6.55.0.pom (8.6 kB at 18 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd/6.55.0/pmd-6.55.0.pom
+Progress (1): 789 BProgress (1): 2.0 kBProgress (1): 3.8 kBProgress (1): 5.5 kBProgress (1): 9.3 kBProgress (1): 13 kB Progress (1): 17 kBProgress (1): 21 kBProgress (1): 24 kBProgress (1): 30 kBProgress (1): 33 kBProgress (1): 37 kBProgress (1): 41 kBProgress (1): 43 kBProgress (1): 48 kBProgress (1): 49 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd/6.55.0/pmd-6.55.0.pom (49 kB at 95 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/beust/jcommander/1.48/jcommander-1.48.pom
+Progress (1): 812 BProgress (1): 2.3 kBProgress (1): 4.3 kBProgress (1): 7.3 kBProgress (1): 9.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/beust/jcommander/1.48/jcommander-1.48.pom (9.3 kB at 23 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/3/oss-parent-3.pom
+Progress (1): 1.2 kBProgress (1): 3.2 kBProgress (1): 3.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/3/oss-parent-3.pom (3.4 kB at 16 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/saxon/saxon/9.1.0.8/saxon-9.1.0.8.pom
+Progress (1): 973 BProgress (1): 2.4 kBProgress (1): 5.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/saxon/saxon/9.1.0.8/saxon-9.1.0.8.pom (5.7 kB at 18 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9.pom
+Progress (1): 1.2 kBProgress (1): 3.1 kBProgress (1): 6.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9.pom (6.3 kB at 12 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.8.9/gson-parent-2.8.9.pom
+Progress (1): 1.2 kBProgress (1): 4.0 kBProgress (1): 4.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.8.9/gson-parent-2.8.9.pom (4.7 kB at 12 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-java/6.55.0/pmd-java-6.55.0.pom
+Progress (1): 1.4 kBProgress (1): 4.8 kBProgress (1): 8.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-java/6.55.0/pmd-java-6.55.0.pom (8.8 kB at 30 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-javascript/6.55.0/pmd-javascript-6.55.0.pom
+Progress (1): 1.3 kBProgress (1): 3.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-javascript/6.55.0/pmd-javascript-6.55.0.pom (3.9 kB at 11 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-jsp/6.55.0/pmd-jsp-6.55.0.pom
+Progress (1): 1.4 kBProgress (1): 3.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-jsp/6.55.0/pmd-jsp-6.55.0.pom (3.7 kB at 28 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.pom
+Progress (1): 886 BProgress (1): 3.2 kBProgress (1): 4.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.pom (4.3 kB at 14 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.3.5/sisu-plexus-0.3.5.pom
+Progress (1): 860 BProgress (1): 2.9 kBProgress (1): 5.2 kBProgress (1): 9.8 kBProgress (1): 11 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.3.5/sisu-plexus-0.3.5.pom (14 kB at 29 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.pom
+Progress (1): 913 BProgress (1): 2.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.pom (2.6 kB at 4.8 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.3.5/sisu-inject-0.3.5.pom
+Progress (1): 844 BProgress (1): 2.8 kBProgress (1): 5.1 kBProgress (1): 9.7 kBProgress (1): 11 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.3.5/sisu-inject-0.3.5.pom (14 kB at 29 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom
+Progress (1): 881 BProgress (1): 2.9 kBProgress (1): 6.0 kBProgress (1): 7.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom (7.3 kB at 13 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+Progress (1): 704 BProgress (1): 2.6 kBProgress (1): 6.1 kBProgress (1): 8.6 kBProgress (1): 11 kB Progress (1): 16 kBProgress (1): 20 kBProgress (1): 20 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom (20 kB at 34 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-resources/1.2.0/plexus-resources-1.2.0.pom
+Progress (1): 1.2 kBProgress (1): 3.7 kBProgress (1): 4.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-resources/1.2.0/plexus-resources-1.2.0.pom (4.4 kB at 19 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/6.6/plexus-components-6.6.pom
+Progress (1): 1.3 kBProgress (1): 2.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/6.6/plexus-components-6.6.pom (2.7 kB at 7.0 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/8/plexus-8.pom
+Progress (1): 694 BProgress (1): 2.7 kBProgress (1): 6.4 kBProgress (1): 9.2 kBProgress (1): 11 kB Progress (1): 15 kBProgress (1): 20 kBProgress (1): 24 kBProgress (1): 25 kBProgress (1): 25 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/8/plexus-8.pom (25 kB at 53 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.pom
+Progress (1): 1.0 kBProgress (1): 3.4 kBProgress (1): 3.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.pom (3.8 kB at 6.5 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.32/slf4j-parent-1.7.32.pom
+Progress (1): 1.0 kBProgress (1): 3.3 kBProgress (1): 6.1 kBProgress (1): 9.1 kBProgress (1): 12 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.32/slf4j-parent-1.7.32.pom (14 kB at 28 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.jar
+Progress (1): 7.7/58 kBProgress (1): 16/58 kB Progress (1): 25/58 kBProgress (1): 41/58 kBProgress (1): 57/58 kBProgress (1): 58 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.jar (58 kB at 47 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/beust/jcommander/1.48/jcommander-1.48.jar
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/saxon/saxon/9.1.0.8/saxon-9.1.0.8.jar
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-core/6.55.0/pmd-core-6.55.0.jar
+Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/saxon/saxon/9.1.0.8/saxon-9.1.0.8-dom.jar
+Progress (1): 0/5.0 MBProgress (1): 0/5.0 MBProgress (2): 0/5.0 MB | 0/1.4 MBProgress (2): 0/5.0 MB | 0/1.4 MBProgress (2): 0/5.0 MB | 0/1.4 MBProgress (2): 0/5.0 MB | 0/1.4 MBProgress (3): 0/5.0 MB | 0/1.4 MB | 0.9/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 2.3/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 3.7/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 5.0/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 6.4/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 7.8/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 9.1/129 kBProgress (3): 0/5.0 MB | 0/1.4 MB | 11/129 kB Progress (3): 0/5.0 MB | 0/1.4 MB | 12/129 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 0.9/64 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 2.3/64 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 3.6/64 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 5.0/64 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 6.4/64 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 7.7/64 kBProgress (4): 0/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 12/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 13/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 15/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 16/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 17/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 19/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 20/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 20/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 21/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 23/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 24/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 26/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kBProgress (4): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 0.9/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 2.3/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 3.7/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 5.0/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 6.4/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 7.8/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 9.1/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 11/258 kB Progress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 12/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 13/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 15/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 16/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 17/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 19/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 20/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 21/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 23/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 9.1/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 10/64 kB | 24/258 kB Progress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 12/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 13/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 15/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 16/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 17/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 19/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 20/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 21/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 23/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 24/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 25/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 26/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 27/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 29/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 30/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 31/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 24/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 25/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 26/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 27/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 29/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 30/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 31/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 33/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 34/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 36/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 37/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 32/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 34/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 34/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 34/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 27/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 28/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 30/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 31/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 32/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 34/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 35/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 37/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 38/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 39/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 41/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 42/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 43/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 35/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 36/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 38/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 39/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 40/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 42/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 43/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 44/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 46/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 47/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 49/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 50/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 51/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 53/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 45/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 46/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 47/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 47/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0/1.4 MB | 47/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 54/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 58/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 38/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 40/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 41/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 42/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 44/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 45/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 46/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 48/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 49/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 51/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 52/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 53/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 55/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 57/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 62/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 66/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 62/64 kB | 70/258 kBProgress (5): 0.1/5.0 MB | 0.1/1.4 MB | 47/129 kB | 64 kB | 70/258 kB                                                                        Downloaded from central: https://repo.maven.apache.org/maven2/com/beust/jcommander/1.48/jcommander-1.48.jar (64 kB at 15 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-java/6.55.0/pmd-java-6.55.0.jar
+Progress (4): 0.1/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.1/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.1/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.1/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.1/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.1/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 49/129 kB | 70/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 50/129 kB | 70/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 52/129 kB | 70/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 53/129 kB | 70/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 53/129 kB | 74/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 53/129 kB | 78/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 78/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 78/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 83/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.1/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.2/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (4): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 54/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 58/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 63/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 67/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 71/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 75/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 80/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 80/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 80/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 87/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 90/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 94/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 99/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 103/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 107/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 111/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 115/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 84/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 86/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 90/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 94/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 98/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 103/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 103/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 107/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 111/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 115/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 115/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 115/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 115/129 kB | 120/258 kB | 0/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 115/129 kB | 120/258 kB | 0.1/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 115/129 kB | 120/258 kB | 0.1/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 118/129 kB | 120/258 kB | 0.1/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 123/129 kB | 120/258 kB | 0.1/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 127/129 kB | 120/258 kB | 0.1/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 129 kB | 120/258 kB | 0.1/1.2 MB                                                                            Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/saxon/saxon/9.1.0.8/saxon-9.1.0.8-dom.jar (129 kB at 16 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-javascript/6.55.0/pmd-javascript-6.55.0.jar
+Progress (4): 0.3/5.0 MB | 0.2/1.4 MB | 123/258 kB | 0.1/1.2 MBProgress (4): 0.3/5.0 MB | 0.2/1.4 MB | 127/258 kB | 0.1/1.2 MBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 127/258 kB | 0.1/1.2 MB | 3.8/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 127/258 kB | 0.1/1.2 MB | 8.0/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 127/258 kB | 0.1/1.2 MB | 12/145 kB Progress (5): 0.3/5.0 MB | 0.2/1.4 MB | 127/258 kB | 0.1/1.2 MB | 16/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 127/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 131/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 136/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 140/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 144/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 148/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 152/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 156/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 160/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 164/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 164/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 164/258 kB | 0.1/1.2 MB | 20/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 164/258 kB | 0.1/1.2 MB | 24/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 164/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 168/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 168/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 173/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 177/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 181/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 185/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 188/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 193/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 197/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 197/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 197/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 197/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 197/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 197/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 201/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 205/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 210/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 214/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.3/5.0 MB | 0.2/1.4 MB | 214/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 214/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 218/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 29/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 33/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 37/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 41/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 45/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 50/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 53/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 57/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 61/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 66/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 70/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 74/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 78/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 82/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.2/1.4 MB | 221/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 221/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 221/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 86/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 102/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 118/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 135/145 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.1/1.2 MB | 145 kB                                                                            Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-javascript/6.55.0/pmd-javascript-6.55.0.jar (145 kB at 12 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-jsp/6.55.0/pmd-jsp-6.55.0.jar
+Progress (4): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.2/1.2 MBProgress (4): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.2/1.2 MBProgress (4): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.2/1.2 MBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.2/1.2 MB | 7.7/101 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.2/1.2 MB | 16/101 kB Progress (5): 0.4/5.0 MB | 0.3/1.4 MB | 238/258 kB | 0.2/1.2 MB | 20/101 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 254/258 kB | 0.2/1.2 MB | 20/101 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 258 kB | 0.2/1.2 MB | 20/101 kB                                                                           Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar (258 kB at 21 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.jar
+Progress (4): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 20/101 kBProgress (4): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 36/101 kBProgress (4): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 53/101 kBProgress (4): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 7.7/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 8.2/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 25/205 kB Progress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 41/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 41/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 41/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 41/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 57/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 74/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 82/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.2/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 69/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 86/101 kB | 98/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 98/205 kB   Progress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 115/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 115/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 115/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 131/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 131/205 kBProgress (5): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 101 kB | 147/205 kB                                                                        Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-jsp/6.55.0/pmd-jsp-6.55.0.jar (101 kB at 6.3 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.jar
+Progress (4): 0.4/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 147/205 kBProgress (4): 0.5/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 147/205 kBProgress (4): 0.5/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 164/205 kBProgress (4): 0.5/5.0 MB | 0.3/1.4 MB | 0.3/1.2 MB | 164/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 164/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 164/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 164/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 180/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kBProgress (4): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 7.7/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 16/379 kB Progress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 20/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 184/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.4/1.4 MB | 0.3/1.2 MB | 201/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 201/205 kB | 36/379 kBProgress (5): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 201/205 kB | 53/379 kBProgress (5): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 201/205 kB | 69/379 kBProgress (5): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 201/205 kB | 86/379 kBProgress (5): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 201/205 kB | 86/379 kBProgress (5): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 205 kB | 86/379 kB                                                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.jar (205 kB at 11 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-resources/1.2.0/plexus-resources-1.2.0.jar
+Progress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.3/1.2 MB | 86/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 86/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 102/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 102/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 102/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.5/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.4/1.2 MB | 118/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 118/379 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 118/379 kB | 7.7/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 118/379 kB | 16/23 kB Progress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 16/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 20/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 20/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 20/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 20/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 20/23 kBProgress (5): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 135/379 kB | 23 kB                                                                          Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-resources/1.2.0/plexus-resources-1.2.0.jar (23 kB at 1.0 kB/s)
+Progress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 151/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 151/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 151/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 151/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 151/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 151/379 kBProgress (4): 0.6/5.0 MB | 0.5/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.6/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.6/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.6/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.6/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.6/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 168/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 184/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 184/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 184/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.5/1.2 MB | 200/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 200/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 217/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 233/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 249/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 249/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 249/379 kBProgress (4): 0.7/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 257/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 257/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 274/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 290/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 306/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 306/379 kBProgress (4): 0.8/5.0 MB | 0.6/1.4 MB | 0.6/1.2 MB | 323/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 323/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 323/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 339/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 339/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 355/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 372/379 kBProgress (4): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MB | 379 kB                                                               Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.jar (379 kB at 13 kB/s)
+Progress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MBProgress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MBProgress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MBProgress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MBProgress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.6/1.2 MBProgress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.7/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.7/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.8/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.8/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 0.9/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.8/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 0.9/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.0/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.1/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.2/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.0/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.3/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 0.9/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.1/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.2/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.2/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.2/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.2/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.2/5.0 MB | 1.4/1.4 MB | 1.0/1.2 MBProgress (3): 1.2/5.0 MB | 1.4 MB | 1.0/1.2 MB                                                  Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-core/6.55.0/pmd-core-6.55.0.jar (1.4 MB at 32 kB/s)
+Progress (2): 1.2/5.0 MB | 1.0/1.2 MBProgress (2): 1.2/5.0 MB | 1.0/1.2 MBProgress (2): 1.2/5.0 MB | 1.0/1.2 MBProgress (2): 1.2/5.0 MB | 1.0/1.2 MBProgress (2): 1.2/5.0 MB | 1.0/1.2 MBProgress (2): 1.3/5.0 MB | 1.0/1.2 MBProgress (2): 1.3/5.0 MB | 1.0/1.2 MBProgress (2): 1.3/5.0 MB | 1.0/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.3/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.4/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.1/1.2 MBProgress (2): 1.5/5.0 MB | 1.2/1.2 MBProgress (2): 1.5/5.0 MB | 1.2/1.2 MBProgress (2): 1.5/5.0 MB | 1.2/1.2 MBProgress (2): 1.6/5.0 MB | 1.2/1.2 MBProgress (2): 1.6/5.0 MB | 1.2/1.2 MBProgress (2): 1.6/5.0 MB | 1.2/1.2 MBProgress (2): 1.6/5.0 MB | 1.2/1.2 MBProgress (2): 1.6/5.0 MB | 1.2 MB                                     Downloaded from central: https://repo.maven.apache.org/maven2/net/sourceforge/pmd/pmd-java/6.55.0/pmd-java-6.55.0.jar (1.2 MB at 26 kB/s)
+Progress (1): 1.6/5.0 MBProgress (1): 1.6/5.0 MBProgress (1): 1.6/5.0 MBProgress (1): 1.6/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.7/5.0 MBProgress (1): 1.8/5.0 MBProgress (1): 1.8/5.0 MBProgress (1): 1.8/5.0 MBProgress (1): 1.8/5.0 MBProgress (1): 1.8/5.0 MBProgress (1): 1.8/5.0 MBProgress (1): 1.9/5.0 MBProgress (1): 1.9/5.0 MBProgress (1): 1.9/5.0 MBProgress (1): 1.9/5.0 MBProgress (1): 1.9/5.0 MBProgress (1): 1.9/5.0 MBProgress (1): 2.0/5.0 MBProgress (1): 2.0/5.0 MBProgress (1): 2.0/5.0 MBProgress (1): 2.0/5.0 MBTerminate batch job (Y/N)? 

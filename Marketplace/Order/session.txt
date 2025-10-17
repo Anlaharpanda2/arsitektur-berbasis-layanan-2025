@@ -1,0 +1,14 @@
+Ringkasan Sesi Gemini:
+
+Tujuan Utama: Membangun dua layanan microservice generik untuk pola CQRS & Event Sourcing di dalam direktori 'genericservice'. Layanan ini akan dapat digunakan kembali oleh entitas lain di masa depan.
+
+1.  **Command Service:** Menerima perintah API, memvalidasi, menyimpan event ke event store (PostgreSQL), dan menerbitkan event ke message broker (RabbitMQ).
+2.  **Projection Service:** Mendengarkan event dari RabbitMQ dan memperbarui satu atau lebih read model (MongoDB dan/atau PostgreSQL).
+
+Studi Kasus Awal: Implementasi untuk entitas 'Pelanggan' (Customer) dengan meniru arsitektur dari layanan 'Marketplace/Order' yang sudah ada.
+
+Situasi Saat Ini (Roadblock): Terjadi kendala teknis di mana saya (Gemini) hanya memiliki akses ke direktori 'Marketplace/Order'. Saya tidak dapat melihat atau mengakses direktori 'genericservice' yang dibuat oleh pengguna.
+
+Solusi yang Disepakati: Pengguna akan menutup sesi terminal ini dan membuka sesi terminal baru langsung di dalam direktori 'genericservice'. Dengan cara ini, workspace saya akan diatur ke direktori yang benar, memungkinkan saya untuk melanjutkan pekerjaan.
+
+Langkah Selanjutnya di Sesi Baru: Saya akan mulai dengan menganalisis struktur proyek di 'command-service' dan 'projection-service', lalu mulai menulis kode yang diperlukan untuk fungsionalitas 'Pelanggan'.
