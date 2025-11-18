@@ -1,0 +1,153 @@
+services:
+  # Service Discovery - Eureka Server
+  eureka-server:
+    build: ../eureka
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      JAVA_OPTS: "-Xmx256m -Xss512k"
+    networks:
+      - generic-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Message Broker - RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-generic
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - generic-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # MongoDB for Query Service
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb-generic
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: pelanggan_readdb
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - generic-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Command Service (CQRS Write Side)
+  command-service:
+    build: ./command-service
+    container_name: command-service
+    ports:
+      - "8091:8091"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_PORT: 8091
+      SPRING_APPLICATION_NAME: PELANGGAN-COMMAND-SERVICE
+      
+      # H2 Database Configuration
+      SPRING_DATASOURCE_URL: jdbc:h2:file:/app/data/pelanggan_eventstore;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_H2_CONSOLE_ENABLED: "true"
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      
+      # RabbitMQ Configuration
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+      
+      # Eureka Configuration
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      
+      # Event Configuration
+      APP_MESSAGING_EXCHANGE_NAME: pelanggan-exchange
+      APP_MESSAGING_ROUTING_KEY_CREATED: pelanggan.created
+      APP_MESSAGING_ROUTING_KEY_UPDATED: pelanggan.updated
+      APP_MESSAGING_ROUTING_KEY_DELETED: pelanggan.deleted
+    volumes:
+      - command_data:/app/data
+    depends_on:
+      - eureka-server
+      - rabbitmq
+    networks:
+      - generic-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8091/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # Query Service (CQRS Read Side)
+  query-service:
+    build: ./query-service
+    container_name: query-service
+    ports:
+      - "8092:8092"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_PORT: 8092
+      SPRING_APPLICATION_NAME: PELANGGAN-QUERY-SERVICE
+      
+      # MongoDB Configuration
+      SPRING_DATA_MONGODB_HOST: mongodb
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: pelanggan_readdb
+      
+      # RabbitMQ Configuration
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+      
+      # Eureka Configuration
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      
+      # Event Configuration
+      APP_MESSAGING_EXCHANGE_NAME: pelanggan-exchange
+      APP_MESSAGING_QUEUE_NAME: pelanggan-projection-queue
+      APP_MESSAGING_ROUTING_KEY_CREATED: pelanggan.created
+      APP_MESSAGING_ROUTING_KEY_UPDATED: pelanggan.updated
+      APP_MESSAGING_ROUTING_KEY_DELETED: pelanggan.deleted
+    depends_on:
+      - eureka-server
+      - rabbitmq
+      - mongodb
+      - command-service
+    networks:
+      - generic-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8092/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  command_data:
+  mongodb_data:
+
+networks:
+  generic-network:
+    driver: bridge

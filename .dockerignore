@@ -1,0 +1,43 @@
+# Maven
+.mvn
+mvnw
+mvnw.cmd
+
+# IDE
+.idea
+.vscode
+*.iml
+*.ipr
+*.iws
+.settings
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+README.md
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.yaml
+
+# Testing
+src/test
+
+# Logs
+*.log
+logs/
+
+# Temp
+tmp/
+temp/
