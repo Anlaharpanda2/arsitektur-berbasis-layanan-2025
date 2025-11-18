@@ -38,7 +38,14 @@ build_service() {
   echo -e "${YELLOW}Building $service...${NC}"
   
   if cd "$service" 2>/dev/null; then
-    if mvn clean package -DskipTests > /dev/null 2>&1; then
+    # Use mvnw if available, otherwise fall back to mvn
+    if [ -f "./mvnw" ]; then
+      BUILD_CMD="./mvnw clean package -DskipTests"
+    else
+      BUILD_CMD="mvn clean package -DskipTests"
+    fi
+    
+    if $BUILD_CMD > /dev/null 2>&1; then
       echo -e "${GREEN}✓ $service built successfully${NC}"
       ((SUCCESS_COUNT++))
       cd - > /dev/null

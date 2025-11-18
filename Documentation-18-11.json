@@ -1,0 +1,1066 @@
+{
+  "documentation": {
+    "title": "Arsitektur Berbasis Layanan - Microservices Documentation",
+    "version": "1.0.0",
+    "date": "2025-11-18",
+    "author": "Anla",
+    "description": "Dokumentasi lengkap untuk arsitektur microservices yang mencakup Marketplace, Generic Service (CQRS), dan Perpustakaan"
+  },
+  "architecture": {
+    "pattern": "Microservices Architecture",
+    "service_discovery": "Netflix Eureka",
+    "message_broker": "RabbitMQ",
+    "api_gateway": "Spring Cloud Gateway",
+    "database": {
+      "relational": "H2 Database (Development)",
+      "nosql": "MongoDB (Query Service)"
+    },
+    "containerization": "Docker & Docker Compose"
+  },
+  "domains": {
+    "marketplace": {
+      "description": "E-commerce domain untuk manajemen produk, pelanggan, dan order",
+      "services": {
+        "produk-service": {
+          "port": 8081,
+          "description": "Service untuk manajemen produk",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (file-based)",
+          "endpoints": [
+            "GET /api/produk",
+            "GET /api/produk/{id}",
+            "POST /api/produk",
+            "PUT /api/produk/{id}",
+            "DELETE /api/produk/{id}"
+          ],
+          "docker": {
+            "dockerfile": "Marketplace/Produk/Dockerfile",
+            "image": "produk-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "pelanggan-service": {
+          "port": 8082,
+          "description": "Service untuk manajemen pelanggan",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (file-based)",
+          "endpoints": [
+            "GET /api/pelanggan",
+            "GET /api/pelanggan/{id}",
+            "POST /api/pelanggan",
+            "PUT /api/pelanggan/{id}",
+            "DELETE /api/pelanggan/{id}"
+          ],
+          "docker": {
+            "dockerfile": "Marketplace/Pelanggan/Dockerfile",
+            "image": "pelanggan-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "order-service": {
+          "port": 8083,
+          "description": "Service untuk manajemen order",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (file-based)",
+          "dependencies": [
+            "produk-service",
+            "pelanggan-service"
+          ],
+          "endpoints": [
+            "GET /api/order",
+            "GET /api/order/{id}",
+            "POST /api/order",
+            "PUT /api/order/{id}",
+            "DELETE /api/order/{id}"
+          ],
+          "docker": {
+            "dockerfile": "Marketplace/Order/Dockerfile",
+            "image": "order-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "api-gateway": {
+          "port": 9000,
+          "description": "API Gateway untuk Marketplace services",
+          "technology": "Spring Cloud Gateway",
+          "routes": [
+            {
+              "path": "/produk/**",
+              "service": "produk-service"
+            },
+            {
+              "path": "/pelanggan/**",
+              "service": "pelanggan-service"
+            },
+            {
+              "path": "/order/**",
+              "service": "order-service"
+            }
+          ],
+          "docker": {
+            "dockerfile": "Marketplace/api-gateway/Dockerfile",
+            "image": "marketplace-gateway"
+          }
+        }
+      },
+      "infrastructure": {
+        "eureka": {
+          "port": 8761,
+          "url": "http://localhost:8761",
+          "description": "Service discovery untuk Marketplace"
+        },
+        "rabbitmq": {
+          "amqp_port": 5672,
+          "management_port": 15672,
+          "credentials": {
+            "username": "admin",
+            "password": "password"
+          },
+          "description": "Message broker untuk event-driven communication"
+        }
+      },
+      "docker_compose": "Marketplace/docker-compose.yaml"
+    },
+    "generic_service": {
+      "description": "CQRS (Command Query Responsibility Segregation) implementation dengan Event Sourcing",
+      "pattern": "CQRS + Event Sourcing",
+      "services": {
+        "command-service": {
+          "port": 8091,
+          "description": "Write side - menangani semua operasi write (Create, Update, Delete)",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (Event Store)",
+          "responsibilities": [
+            "Menerima command dari client",
+            "Validasi business logic",
+            "Menyimpan event ke event store",
+            "Publish event ke RabbitMQ"
+          ],
+          "endpoints": [
+            "POST /api/pelanggan",
+            "PUT /api/pelanggan/{id}",
+            "DELETE /api/pelanggan/{id}"
+          ],
+          "events": [
+            "pelanggan.created",
+            "pelanggan.updated",
+            "pelanggan.deleted"
+          ],
+          "docker": {
+            "dockerfile": "GenericService/command-service/Dockerfile",
+            "image": "command-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "query-service": {
+          "port": 8092,
+          "description": "Read side - menangani semua operasi read (Query)",
+          "technology": "Spring Boot 3.5.5, Java 17, MongoDB",
+          "database": "MongoDB (Read Model)",
+          "responsibilities": [
+            "Consume event dari RabbitMQ",
+            "Update read model di MongoDB",
+            "Menyediakan optimized query endpoint"
+          ],
+          "endpoints": [
+            "GET /api/pelanggan",
+            "GET /api/pelanggan/{id}",
+            "GET /api/pelanggan/search"
+          ],
+          "docker": {
+            "dockerfile": "GenericService/query-service/Dockerfile",
+            "image": "query-service",
+            "healthcheck": "/actuator/health"
+          }
+        }
+      },
+      "infrastructure": {
+        "eureka": {
+          "port": 8761,
+          "url": "http://localhost:8761",
+          "description": "Service discovery untuk Generic services"
+        },
+        "rabbitmq": {
+          "amqp_port": 5674,
+          "management_port": 15674,
+          "credentials": {
+            "username": "guest",
+            "password": "guest"
+          },
+          "exchange": "pelanggan-exchange",
+          "queue": "pelanggan-projection-queue",
+          "description": "Message broker untuk CQRS event communication"
+        },
+        "mongodb": {
+          "port": 27017,
+          "database": "pelanggan_readdb",
+          "description": "NoSQL database untuk read model optimization"
+        }
+      },
+      "docker_compose": "GenericService/docker-compose.yaml"
+    },
+    "perpustakaan": {
+      "description": "Library management system untuk manajemen buku, anggota, peminjaman, dan pengembalian",
+      "services": {
+        "buku-service": {
+          "port": 8084,
+          "description": "Service untuk manajemen buku perpustakaan",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (file-based)",
+          "endpoints": [
+            "GET /api/buku",
+            "GET /api/buku/{id}",
+            "POST /api/buku",
+            "PUT /api/buku/{id}",
+            "DELETE /api/buku/{id}"
+          ],
+          "docker": {
+            "dockerfile": "Perpustakaan/Buku/Dockerfile",
+            "image": "buku-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "anggota-service": {
+          "port": 8085,
+          "description": "Service untuk manajemen anggota perpustakaan",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (file-based)",
+          "endpoints": [
+            "GET /api/anggota",
+            "GET /api/anggota/{id}",
+            "POST /api/anggota",
+            "PUT /api/anggota/{id}",
+            "DELETE /api/anggota/{id}"
+          ],
+          "docker": {
+            "dockerfile": "Perpustakaan/anggota/Dockerfile",
+            "image": "anggota-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "pengembalian-service": {
+          "port": 8086,
+          "description": "Service untuk manajemen pengembalian buku",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (file-based)",
+          "endpoints": [
+            "GET /api/pengembalian",
+            "GET /api/pengembalian/{id}",
+            "POST /api/pengembalian",
+            "PUT /api/pengembalian/{id}",
+            "DELETE /api/pengembalian/{id}"
+          ],
+          "docker": {
+            "dockerfile": "Perpustakaan/Pengembalian/Dockerfile",
+            "image": "pengembalian-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "peminjaman-service": {
+          "port": 8087,
+          "description": "Service untuk manajemen peminjaman buku dengan RabbitMQ integration",
+          "technology": "Spring Boot 3.5.5, Java 17",
+          "database": "H2 (in-memory)",
+          "message_broker": "RabbitMQ",
+          "endpoints": [
+            "GET /api/peminjaman",
+            "GET /api/peminjaman/{id}",
+            "POST /api/peminjaman",
+            "PUT /api/peminjaman/{id}",
+            "DELETE /api/peminjaman/{id}"
+          ],
+          "events": [
+            "peminjaman.created",
+            "peminjaman.updated",
+            "peminjaman.returned"
+          ],
+          "docker": {
+            "dockerfile": "Perpustakaan/Peminjaman/Dockerfile",
+            "image": "peminjaman-service",
+            "healthcheck": "/actuator/health"
+          }
+        },
+        "api-gateway": {
+          "port": 9001,
+          "description": "API Gateway untuk Perpustakaan services",
+          "technology": "Spring Cloud Gateway",
+          "routes": [
+            {
+              "path": "/api/buku/**",
+              "service": "buku-service"
+            },
+            {
+              "path": "/api/anggota/**",
+              "service": "anggota-service"
+            },
+            {
+              "path": "/api/peminjaman/**",
+              "service": "peminjaman-service"
+            },
+            {
+              "path": "/api/pengembalian/**",
+              "service": "pengembalian-service"
+            }
+          ],
+          "docker": {
+            "dockerfile": "Perpustakaan/api-gateway/Dockerfile",
+            "image": "perpustakaan-gateway"
+          }
+        }
+      },
+      "infrastructure": {
+        "eureka": {
+          "port": 8761,
+          "url": "http://localhost:8761",
+          "description": "Service discovery untuk Perpustakaan"
+        },
+        "rabbitmq": {
+          "amqp_port": 5675,
+          "management_port": 15675,
+          "credentials": {
+            "username": "guest",
+            "password": "guest"
+          },
+          "exchange": "peminjaman.exchange",
+          "queue": "peminjaman.queue",
+          "routing_key": "peminjaman.routing.key",
+          "description": "Message broker untuk Peminjaman service events"
+        }
+      },
+      "docker_compose": "Perpustakaan/docker-compose.yaml"
+    }
+  },
+  "docker": {
+    "description": "Container orchestration menggunakan Docker dan Docker Compose",
+    "compose_files": {
+      "root": {
+        "file": "docker-compose.yaml",
+        "description": "Menjalankan SEMUA services dari 3 domain sekaligus",
+        "services_count": 16,
+        "includes": [
+          "eureka-server",
+          "rabbitmq-marketplace",
+          "rabbitmq-generic",
+          "rabbitmq-perpustakaan",
+          "mongodb",
+          "produk-service",
+          "pelanggan-service",
+          "order-service",
+          "marketplace-gateway",
+          "command-service",
+          "query-service",
+          "buku-service",
+          "anggota-service",
+          "peminjaman-service",
+          "pengembalian-service",
+          "perpustakaan-gateway"
+        ],
+        "networks": [
+          "microservices-network"
+        ],
+        "volumes": [
+          "produk_data",
+          "pelanggan_data",
+          "order_data",
+          "command_data",
+          "mongodb_data",
+          "buku_data",
+          "anggota_data",
+          "pengembalian_data"
+        ],
+        "usage": "docker compose up -d"
+      },
+      "marketplace": {
+        "file": "Marketplace/docker-compose.yaml",
+        "description": "Menjalankan hanya Marketplace services",
+        "services_count": 6,
+        "includes": [
+          "server-eureka",
+          "rabbitmq",
+          "produk-service",
+          "pelanggan-service",
+          "order-service",
+          "api-gateway"
+        ],
+        "usage": "cd Marketplace && docker compose up -d"
+      },
+      "generic_service": {
+        "file": "GenericService/docker-compose.yaml",
+        "description": "Menjalankan hanya CQRS services",
+        "services_count": 5,
+        "includes": [
+          "eureka-server",
+          "rabbitmq",
+          "mongodb",
+          "command-service",
+          "query-service"
+        ],
+        "usage": "cd GenericService && docker compose up -d"
+      },
+      "perpustakaan": {
+        "file": "Perpustakaan/docker-compose.yaml",
+        "description": "Menjalankan hanya Library services",
+        "services_count": 7,
+        "includes": [
+          "eureka-server",
+          "rabbitmq",
+          "buku-service",
+          "anggota-service",
+          "peminjaman-service",
+          "pengembalian-service",
+          "api-gateway"
+        ],
+        "usage": "cd Perpustakaan && docker compose up -d"
+      }
+    },
+    "dockerfiles": {
+      "total_count": 12,
+      "services": [
+        {
+          "name": "eureka",
+          "path": "eureka/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8761
+        },
+        {
+          "name": "produk",
+          "path": "Marketplace/Produk/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8081
+        },
+        {
+          "name": "pelanggan",
+          "path": "Marketplace/Pelanggan/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8082
+        },
+        {
+          "name": "order",
+          "path": "Marketplace/Order/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8083
+        },
+        {
+          "name": "marketplace-gateway",
+          "path": "Marketplace/api-gateway/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 9000
+        },
+        {
+          "name": "command-service",
+          "path": "GenericService/command-service/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8091
+        },
+        {
+          "name": "query-service",
+          "path": "GenericService/query-service/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8092
+        },
+        {
+          "name": "buku",
+          "path": "Perpustakaan/Buku/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8084
+        },
+        {
+          "name": "anggota",
+          "path": "Perpustakaan/anggota/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8085
+        },
+        {
+          "name": "peminjaman",
+          "path": "Perpustakaan/Peminjaman/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8087
+        },
+        {
+          "name": "pengembalian",
+          "path": "Perpustakaan/Pengembalian/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 8086
+        },
+        {
+          "name": "perpustakaan-gateway",
+          "path": "Perpustakaan/api-gateway/Dockerfile",
+          "base_image": "openjdk:17.0.1-jdk-oracle",
+          "port": 9001
+        }
+      ]
+    },
+    "build": {
+      "script": "build-all.sh",
+      "description": "Script otomatis untuk build semua services",
+      "command": "./build-all.sh",
+      "steps": [
+        "Compile semua Java services dengan Maven",
+        "Package ke JAR files",
+        "Skip tests untuk faster build",
+        "Report build status"
+      ]
+    },
+    "optimization": {
+      "dockerignore": ".dockerignore",
+      "excluded_files": [
+        ".mvn",
+        "mvnw",
+        "*.md",
+        ".git",
+        ".idea",
+        ".vscode",
+        "src/test"
+      ]
+    }
+  },
+  "infrastructure": {
+    "service_discovery": {
+      "name": "Netflix Eureka",
+      "port": 8761,
+      "url": "http://localhost:8761",
+      "purpose": "Service registration and discovery",
+      "registered_services": [
+        "PRODUK-SERVICE",
+        "PELANGGAN-SERVICE",
+        "ORDER-SERVICE",
+        "PELANGGAN-COMMAND-SERVICE",
+        "PELANGGAN-QUERY-SERVICE",
+        "BUKU-SERVICE",
+        "ANGGOTA-SERVICE",
+        "PEMINJAMAN-SERVICE",
+        "PENGEMBALIAN-SERVICE",
+        "API-GATEWAY-PERPUSTAKAAN"
+      ]
+    },
+    "message_brokers": {
+      "marketplace_rabbitmq": {
+        "amqp_port": 5672,
+        "management_port": 15672,
+        "management_url": "http://localhost:15672",
+        "username": "admin",
+        "password": "password",
+        "used_by": [
+          "produk-service",
+          "pelanggan-service",
+          "order-service"
+        ]
+      },
+      "generic_rabbitmq": {
+        "amqp_port": 5674,
+        "management_port": 15674,
+        "management_url": "http://localhost:15674",
+        "username": "guest",
+        "password": "guest",
+        "used_by": [
+          "command-service",
+          "query-service"
+        ],
+        "exchanges": [
+          "pelanggan-exchange"
+        ],
+        "queues": [
+          "pelanggan-projection-queue"
+        ]
+      },
+      "perpustakaan_rabbitmq": {
+        "amqp_port": 5675,
+        "management_port": 15675,
+        "management_url": "http://localhost:15675",
+        "username": "guest",
+        "password": "guest",
+        "used_by": [
+          "peminjaman-service"
+        ],
+        "exchanges": [
+          "peminjaman.exchange"
+        ],
+        "queues": [
+          "peminjaman.queue"
+        ]
+      }
+    },
+    "databases": {
+      "h2": {
+        "type": "Relational (SQL)",
+        "mode": "File-based (persistent) & In-memory",
+        "console_enabled": true,
+        "instances": [
+          {
+            "service": "produk-service",
+            "port": 8081,
+            "console_url": "http://localhost:8081/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/produk"
+          },
+          {
+            "service": "pelanggan-service",
+            "port": 8082,
+            "console_url": "http://localhost:8082/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/pelanggan"
+          },
+          {
+            "service": "order-service",
+            "port": 8083,
+            "console_url": "http://localhost:8083/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/order"
+          },
+          {
+            "service": "command-service",
+            "port": 8091,
+            "console_url": "http://localhost:8091/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/pelanggan_eventstore"
+          },
+          {
+            "service": "buku-service",
+            "port": 8084,
+            "console_url": "http://localhost:8084/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/buku"
+          },
+          {
+            "service": "anggota-service",
+            "port": 8085,
+            "console_url": "http://localhost:8085/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/anggota"
+          },
+          {
+            "service": "pengembalian-service",
+            "port": 8086,
+            "console_url": "http://localhost:8086/h2-console",
+            "jdbc_url": "jdbc:h2:file:/app/data/pengembalian"
+          },
+          {
+            "service": "peminjaman-service",
+            "port": 8087,
+            "console_url": "http://localhost:8087/h2-console",
+            "jdbc_url": "jdbc:h2:mem:peminjamandb"
+          }
+        ],
+        "default_credentials": {
+          "username": "sa",
+          "password": "password"
+        }
+      },
+      "mongodb": {
+        "type": "NoSQL (Document-based)",
+        "port": 27017,
+        "url": "mongodb://localhost:27017",
+        "database": "pelanggan_readdb",
+        "used_by": [
+          "query-service"
+        ],
+        "purpose": "Optimized read model untuk CQRS pattern",
+        "access": "docker exec -it mongodb mongosh"
+      }
+    }
+  },
+  "technology_stack": {
+    "backend": {
+      "language": "Java 17",
+      "framework": "Spring Boot 3.5.5",
+      "build_tool": "Maven 3.x"
+    },
+    "spring_modules": [
+      "Spring Boot Starter Web",
+      "Spring Boot Starter Data JPA",
+      "Spring Boot Starter Data MongoDB",
+      "Spring Boot Starter AMQP (RabbitMQ)",
+      "Spring Cloud Netflix Eureka",
+      "Spring Cloud Gateway",
+      "Spring Boot Actuator"
+    ],
+    "databases": {
+      "development": "H2 Database (embedded)",
+      "production_ready": "PostgreSQL/MySQL (recommended)",
+      "nosql": "MongoDB 7.0"
+    },
+    "message_broker": "RabbitMQ 3 (Alpine)",
+    "containerization": {
+      "runtime": "Docker",
+      "orchestration": "Docker Compose v2",
+      "base_image": "openjdk:17.0.1-jdk-oracle"
+    }
+  },
+  "ports_summary": {
+    "infrastructure": {
+      "eureka": 8761,
+      "rabbitmq_marketplace_amqp": 5672,
+      "rabbitmq_marketplace_mgmt": 15672,
+      "rabbitmq_generic_amqp": 5674,
+      "rabbitmq_generic_mgmt": 15674,
+      "rabbitmq_perpustakaan_amqp": 5675,
+      "rabbitmq_perpustakaan_mgmt": 15675,
+      "mongodb": 27017
+    },
+    "services": {
+      "produk": 8081,
+      "pelanggan": 8082,
+      "order": 8083,
+      "buku": 8084,
+      "anggota": 8085,
+      "pengembalian": 8086,
+      "peminjaman": 8087,
+      "command_service": 8091,
+      "query_service": 8092,
+      "marketplace_gateway": 9000,
+      "perpustakaan_gateway": 9001
+    }
+  },
+  "project_structure": {
+    "root": {
+      "docker-compose.yaml": "Root level compose file untuk semua services",
+      "build-all.sh": "Script untuk build semua services",
+      ".dockerignore": "Exclude files dari Docker build context",
+      "DOCKER_SETUP.md": "Dokumentasi lengkap Docker setup",
+      "QUICKSTART.md": "Quick start guide",
+      "DOCKER_CHANGES.md": "Summary of changes",
+      "README.md": "Project readme"
+    },
+    "marketplace": {
+      "path": "Marketplace/",
+      "services": [
+        "Produk",
+        "Pelanggan",
+        "Order",
+        "api-gateway"
+      ],
+      "docker-compose.yaml": "Compose file untuk Marketplace domain"
+    },
+    "generic_service": {
+      "path": "GenericService/",
+      "services": [
+        "command-service",
+        "query-service"
+      ],
+      "docker-compose.yaml": "Compose file untuk CQRS services"
+    },
+    "perpustakaan": {
+      "path": "Perpustakaan/",
+      "services": [
+        "Buku",
+        "anggota",
+        "Peminjaman",
+        "Pengembalian",
+        "api-gateway"
+      ],
+      "docker-compose.yaml": "Compose file untuk Perpustakaan domain"
+    },
+    "eureka": {
+      "path": "eureka/",
+      "description": "Service discovery server",
+      "Dockerfile": "Dockerfile untuk Eureka server"
+    }
+  },
+  "deployment": {
+    "development": {
+      "steps": [
+        {
+          "step": 1,
+          "command": "./build-all.sh",
+          "description": "Build semua services dengan Maven"
+        },
+        {
+          "step": 2,
+          "command": "docker compose up -d",
+          "description": "Start semua services dalam Docker containers"
+        },
+        {
+          "step": 3,
+          "verification": "http://localhost:8761",
+          "description": "Verify service registration di Eureka"
+        }
+      ],
+      "alternative_deployment": {
+        "marketplace_only": "cd Marketplace && docker compose up -d",
+        "generic_only": "cd GenericService && docker compose up -d",
+        "perpustakaan_only": "cd Perpustakaan && docker compose up -d"
+      }
+    },
+    "docker_commands": {
+      "start_all": "docker compose up -d",
+      "stop_all": "docker compose down",
+      "view_logs": "docker compose logs -f [service-name]",
+      "restart_service": "docker compose restart [service-name]",
+      "rebuild": "docker compose build --no-cache",
+      "clean_all": "docker compose down -v"
+    },
+    "healthcheck": {
+      "endpoint": "/actuator/health",
+      "services_with_healthcheck": [
+        "produk-service",
+        "pelanggan-service",
+        "order-service",
+        "command-service",
+        "query-service",
+        "buku-service",
+        "anggota-service",
+        "peminjaman-service",
+        "pengembalian-service"
+      ]
+    }
+  },
+  "design_patterns": {
+    "microservices": {
+      "description": "Setiap service independen dengan database sendiri",
+      "benefits": [
+        "Scalability",
+        "Independent deployment",
+        "Technology diversity",
+        "Fault isolation"
+      ]
+    },
+    "cqrs": {
+      "description": "Command Query Responsibility Segregation di Generic Service",
+      "command_side": "command-service (write operations)",
+      "query_side": "query-service (read operations)",
+      "benefits": [
+        "Optimized read/write operations",
+        "Scalable independently",
+        "Different data models"
+      ]
+    },
+    "event_sourcing": {
+      "description": "Menyimpan semua perubahan sebagai sequence of events",
+      "implementation": "command-service dengan H2 event store",
+      "benefits": [
+        "Complete audit trail",
+        "Temporal queries",
+        "Event replay capability"
+      ]
+    },
+    "api_gateway": {
+      "description": "Single entry point untuk client requests",
+      "implementations": [
+        "Marketplace Gateway (port 9000)",
+        "Perpustakaan Gateway (port 9001)"
+      ],
+      "features": [
+        "Routing",
+        "Load balancing",
+        "Security",
+        "Rate limiting"
+      ]
+    },
+    "service_discovery": {
+      "description": "Dynamic service registration dan discovery",
+      "implementation": "Netflix Eureka",
+      "benefits": [
+        "Dynamic service location",
+        "Load balancing",
+        "Fault tolerance"
+      ]
+    },
+    "event_driven": {
+      "description": "Asynchronous communication via events",
+      "implementation": "RabbitMQ message broker",
+      "use_cases": [
+        "CQRS event synchronization",
+        "Peminjaman notifications",
+        "Inter-service communication"
+      ]
+    }
+  },
+  "monitoring_and_observability": {
+    "health_checks": {
+      "enabled": true,
+      "endpoint": "/actuator/health",
+      "all_services": "Support health check monitoring"
+    },
+    "service_registry": {
+      "tool": "Eureka Dashboard",
+      "url": "http://localhost:8761",
+      "features": [
+        "View registered services",
+        "Service status",
+        "Instance information"
+      ]
+    },
+    "message_broker_ui": {
+      "rabbitmq_management": [
+        {
+          "domain": "Marketplace",
+          "url": "http://localhost:15672",
+          "credentials": "admin/password"
+        },
+        {
+          "domain": "Generic",
+          "url": "http://localhost:15674",
+          "credentials": "guest/guest"
+        },
+        {
+          "domain": "Perpustakaan",
+          "url": "http://localhost:15675",
+          "credentials": "guest/guest"
+        }
+      ]
+    },
+    "database_consoles": {
+      "h2_console": {
+        "enabled": true,
+        "path": "/h2-console",
+        "available_on_all_services": true
+      }
+    }
+  },
+  "best_practices": {
+    "implemented": [
+      "Microservices isolation",
+      "Service discovery",
+      "API Gateway pattern",
+      "Health checks",
+      "Containerization",
+      "Infrastructure as Code (docker-compose)",
+      "Environment-based configuration",
+      "Data persistence with volumes",
+      "Proper networking",
+      "Documentation"
+    ],
+    "recommendations_for_production": [
+      "Replace H2 with PostgreSQL/MySQL",
+      "Add centralized logging (ELK)",
+      "Implement monitoring (Prometheus/Grafana)",
+      "Add distributed tracing (Zipkin/Jaeger)",
+      "Configure security (OAuth2/JWT)",
+      "Set up CI/CD pipeline",
+      "Use Kubernetes for orchestration",
+      "Implement API rate limiting",
+      "Add caching layer (Redis)",
+      "Configure SSL/TLS"
+    ]
+  },
+  "troubleshooting": {
+    "common_issues": [
+      {
+        "issue": "Service tidak start",
+        "solution": "Check JAR file exists di target/ directory"
+      },
+      {
+        "issue": "Port conflict",
+        "solution": "Check dengan 'lsof -i :PORT' dan kill process"
+      },
+      {
+        "issue": "Service tidak register di Eureka",
+        "solution": "Wait 30-60 seconds, check logs"
+      },
+      {
+        "issue": "Database connection error",
+        "solution": "Verify H2 path dan credentials"
+      },
+      {
+        "issue": "RabbitMQ connection refused",
+        "solution": "Ensure RabbitMQ container running"
+      }
+    ],
+    "useful_commands": [
+      "docker compose ps - Check service status",
+      "docker compose logs [service] - View logs",
+      "docker compose restart [service] - Restart service",
+      "docker stats - View resource usage",
+      "docker compose down -v - Clean all including volumes"
+    ]
+  },
+  "documentation_files": {
+    "DOCKER_SETUP.md": {
+      "description": "Comprehensive Docker setup guide",
+      "sections": [
+        "Overview",
+        "Prerequisites",
+        "Building Services",
+        "Running Services",
+        "Service Ports",
+        "Database Access",
+        "Troubleshooting",
+        "Docker Commands"
+      ]
+    },
+    "QUICKSTART.md": {
+      "description": "Quick start guide dengan service architecture diagram",
+      "sections": [
+        "3-step quick start",
+        "Service verification",
+        "Access points",
+        "Common commands",
+        "Architecture diagram"
+      ]
+    },
+    "DOCKER_CHANGES.md": {
+      "description": "Summary of Docker setup changes",
+      "sections": [
+        "What was done",
+        "Files created",
+        "Service architecture",
+        "Key features",
+        "Benefits"
+      ]
+    }
+  },
+  "testing": {
+    "unit_tests": {
+      "tool": "JUnit 5",
+      "location": "src/test/java",
+      "command": "mvn test"
+    },
+    "integration_tests": {
+      "approach": "Run all services dengan docker-compose",
+      "verify": [
+        "Service registration in Eureka",
+        "Inter-service communication",
+        "Event publishing/consuming",
+        "Database persistence"
+      ]
+    },
+    "health_check_tests": {
+      "command": "curl http://localhost:{port}/actuator/health",
+      "expected_response": "UP"
+    }
+  },
+  "version_control": {
+    "repository_structure": [
+      "Separate directories per domain",
+      "Shared Eureka server",
+      "Root-level orchestration files",
+      "Comprehensive documentation"
+    ],
+    "docker_files": [
+      "1 root docker-compose.yaml",
+      "3 domain-level docker-compose.yaml",
+      "12 Dockerfiles",
+      "1 .dockerignore"
+    ]
+  },
+  "future_enhancements": {
+    "planned": [
+      "Kubernetes deployment manifests",
+      "Helm charts",
+      "CI/CD pipeline (GitHub Actions/Jenkins)",
+      "API documentation (Swagger/OpenAPI)",
+      "Performance testing (JMeter/Gatling)",
+      "Security implementation (Spring Security)",
+      "Centralized configuration (Spring Cloud Config)",
+      "Distributed tracing (Zipkin)",
+      "Log aggregation (ELK Stack)"
+    ]
+  },
+  "contact_and_support": {
+    "documentation": [
+      "DOCKER_SETUP.md",
+      "QUICKSTART.md",
+      "DOCKER_CHANGES.md",
+      "README.md"
+    ],
+    "debugging": {
+      "logs": "docker compose logs -f [service-name]",
+      "eureka": "http://localhost:8761",
+      "rabbitmq": "http://localhost:15672",
+      "h2_console": "http://localhost:{port}/h2-console"
+    }
+  },
+  "metadata": {
+    "created_date": "2025-11-18",
+    "total_services": 12,
+    "total_ports_used": 19,
+    "total_dockerfiles": 12,
+    "total_compose_files": 4,
+    "code_changes": "None - Docker only",
+    "status": "Production-ready for development environment"
+  }
+}
