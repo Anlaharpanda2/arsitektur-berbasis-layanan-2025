@@ -1,4 +1,62 @@
 services:
+  # ELK Stack - Elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: elasticsearch-perpustakaan
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    networks:
+      - perpustakaan-network
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ELK Stack - Logstash
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    container_name: logstash-perpustakaan
+    ports:
+      - "5000:5000"
+    environment:
+      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    networks:
+      - perpustakaan-network
+    depends_on:
+      - elasticsearch
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9600 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ELK Stack - Kibana
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: kibana-perpustakaan
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    networks:
+      - perpustakaan-network
+    depends_on:
+      - elasticsearch
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5601/api/status || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
   # Service Discovery - Eureka Server
   eureka-server:
     build: ../eureka
@@ -55,10 +113,15 @@ services:
       
       # Eureka Configuration
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      
+      # Logstash Configuration
+      LOGSTASH_HOST: logstash
+      LOGSTASH_PORT: 5000
     volumes:
       - buku_data:/app/data
     depends_on:
       - eureka-server
+      - logstash
     networks:
       - perpustakaan-network
     healthcheck:
@@ -90,10 +153,15 @@ services:
       
       # Eureka Configuration
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      
+      # Logstash Configuration
+      LOGSTASH_HOST: logstash
+      LOGSTASH_PORT: 5000
     volumes:
       - anggota_data:/app/data
     depends_on:
       - eureka-server
+      - logstash
     networks:
       - perpustakaan-network
     healthcheck:
@@ -125,10 +193,15 @@ services:
       
       # Eureka Configuration
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      
+      # Logstash Configuration
+      LOGSTASH_HOST: logstash
+      LOGSTASH_PORT: 5000
     volumes:
       - pengembalian_data:/app/data
     depends_on:
       - eureka-server
+      - logstash
     networks:
       - perpustakaan-network
     healthcheck:
@@ -170,9 +243,14 @@ services:
       
       # Eureka Configuration
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      
+      # Logstash Configuration
+      LOGSTASH_HOST: logstash
+      LOGSTASH_PORT: 5000
     depends_on:
       - eureka-server
       - rabbitmq
+      - logstash
     networks:
       - perpustakaan-network
     healthcheck:
@@ -198,12 +276,17 @@ services:
       EUREKA_CLIENT_FETCH_REGISTRY: "true"
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
       EUREKA_INSTANCE_HOSTNAME: api-gateway
+      
+      # Logstash Configuration
+      LOGSTASH_HOST: logstash
+      LOGSTASH_PORT: 5000
     depends_on:
       - eureka-server
       - buku-service
       - anggota-service
       - peminjaman-service
       - pengembalian-service
+      - logstash
     networks:
       - perpustakaan-network
 
@@ -211,6 +294,7 @@ volumes:
   buku_data:
   anggota_data:
   pengembalian_data:
+  elasticsearch_data:
 
 networks:
   perpustakaan-network:
